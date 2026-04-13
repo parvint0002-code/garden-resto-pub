@@ -570,6 +570,57 @@
             text-decoration: none;
             border-bottom: 1px solid var(--gold-dark);
         }
+        .menu-category-section { margin-bottom: 30px; }
+        .menu-category-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            background: var(--black-card);
+            border: 1px solid var(--black-border);
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 6px;
+        }
+        .menu-category-header:hover { border-color: var(--gold); }
+        .menu-category-header h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.1rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        .menu-category-header .item-count {
+            font-size: 0.7rem;
+            color: var(--white-dim);
+            letter-spacing: 1px;
+        }
+        .menu-category-header .expand-icon {
+            color: var(--gold);
+            font-size: 0.8rem;
+            transition: transform 0.3s;
+        }
+        .menu-category-header.expanded .expand-icon { transform: rotate(180deg); }
+        .menu-category-items { display: none; }
+        .menu-category-items.show { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 4px; }
+        .menu-category-items .menu-item-preview { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 4px; }
+        .menu-expand-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-top: 4px;
+            background: rgba(198, 166, 100, 0.06);
+            border: 1px dashed var(--black-border);
+            color: var(--gold);
+            font-family: 'Raleway', sans-serif;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+        .menu-expand-btn:hover { border-color: var(--gold); background: rgba(198, 166, 100, 0.1); }
 
         /* ===== GALLERY ===== */
         #gallery { background: var(--black-light); }
@@ -797,12 +848,13 @@
         <span class="nav-logo-text">Garden</span>
     </a>
     <ul class="nav-links">
-        <li><a href="#about" data-en="About" data-ru="О нас">About</a></li>
-        <li><a href="#menu" data-en="Menu" data-ru="Меню">Menu</a></li>
-        <li><a href="#gallery" data-en="Gallery" data-ru="Галерея">Gallery</a></li>
-        <li><a href="#contact" data-en="Contact" data-ru="Контакты">Contact</a></li>
+        <li><a href="#about" data-az="Haqqımızda" data-en="About" data-ru="О нас">About</a></li>
+        <li><a href="#menu" data-az="Menyu" data-en="Menu" data-ru="Меню">Menu</a></li>
+        <li><a href="#gallery" data-az="Qalereya" data-en="Gallery" data-ru="Галерея">Gallery</a></li>
+        <li><a href="#contact" data-az="Əlaqə" data-en="Contact" data-ru="Контакты">Contact</a></li>
         <li>
             <div class="lang-toggle">
+                <button class="lang-btn" onclick="setLang('az')">AZ</button>
                 <button class="lang-btn active" onclick="setLang('en')">EN</button>
                 <button class="lang-btn" onclick="setLang('ru')">RU</button>
             </div>
@@ -815,11 +867,12 @@
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
-    <a href="#about" onclick="closeMobile()" data-en="About" data-ru="О нас">About</a>
-    <a href="#menu" onclick="closeMobile()" data-en="Menu" data-ru="Меню">Menu</a>
-    <a href="#gallery" onclick="closeMobile()" data-en="Gallery" data-ru="Галерея">Gallery</a>
-    <a href="#contact" onclick="closeMobile()" data-en="Contact" data-ru="Контакты">Contact</a>
+    <a href="#about" onclick="closeMobile()" data-az="Haqqımızda" data-en="About" data-ru="О нас">About</a>
+    <a href="#menu" onclick="closeMobile()" data-az="Menyu" data-en="Menu" data-ru="Меню">Menu</a>
+    <a href="#gallery" onclick="closeMobile()" data-az="Qalereya" data-en="Gallery" data-ru="Галерея">Gallery</a>
+    <a href="#contact" onclick="closeMobile()" data-az="Əlaqə" data-en="Contact" data-ru="Контакты">Contact</a>
     <div class="lang-toggle" style="margin-top: 20px;">
+        <button class="lang-btn" onclick="setLang('az')">AZ</button>
         <button class="lang-btn active" onclick="setLang('en')">EN</button>
         <button class="lang-btn" onclick="setLang('ru')">RU</button>
     </div>
@@ -829,13 +882,13 @@
 <section class="hero" id="hero">
     <div class="hero-bg-pattern"></div>
     <div class="hero-content">
-        <div class="hero-badge" data-en="Ganja, Azerbaijan" data-ru="Гянджа, Азербайджан">Ganja, Azerbaijan</div>
+        <div class="hero-badge" data-az="Gəncə, Azərbaycan" data-en="Ganja, Azerbaijan" data-ru="Гянджа, Азербайджан">Ganja, Azerbaijan</div>
         <h1>Garden<span>Resto Pub</span></h1>
-        <p class="hero-sub" data-en="Fine Dining &middot; Craft Drinks &middot; Premium Hookah" data-ru="Изысканная кухня &middot; Крафтовые напитки &middot; Премиум кальян">Fine Dining &middot; Craft Drinks &middot; Premium Hookah</p>
+        <p class="hero-sub" data-az="Zövqlü mətbəx &middot; Kraft içkilər &middot; Premium qəlyan" data-en="Fine Dining &middot; Craft Drinks &middot; Premium Hookah" data-ru="Изысканная кухня &middot; Крафтовые напитки &middot; Премиум кальян">Fine Dining &middot; Craft Drinks &middot; Premium Hookah</p>
         <div class="hero-divider"></div>
         <div class="hero-cta">
-            <a href="#menu" class="btn btn-gold" data-en="Explore Menu" data-ru="Наше меню">Explore Menu</a>
-            <a href="#contact" class="btn btn-outline" data-en="Contact Us" data-ru="Связаться">Contact Us</a>
+            <a href="#menu" class="btn btn-gold" data-az="Menyuya bax" data-en="Explore Menu" data-ru="Наше меню">Explore Menu</a>
+            <a href="#contact" class="btn btn-outline" data-az="Əlaqə" data-en="Contact Us" data-ru="Связаться">Contact Us</a>
         </div>
     </div>
     <div class="scroll-indicator">
@@ -852,32 +905,34 @@
             </div>
         </div>
         <div class="about-text reveal">
-            <div class="section-tag" data-en="Our Story" data-ru="Наша история">Our Story</div>
-            <h3 data-en="Welcome to <span>Garden</span> Resto Pub" data-ru="Добро пожаловать в <span>Garden</span> Resto Pub">Welcome to <span>Garden</span> Resto Pub</h3>
-            <p data-en="Nestled in the heart of Ganja, Garden Resto Pub offers a unique blend of premium dining and vibrant pub atmosphere. Our carefully curated menu features the finest meats, fresh seafood, craft beers, and an extensive spirits collection."
+            <div class="section-tag" data-az="Bizim hekayə" data-en="Our Story" data-ru="Наша история">Our Story</div>
+            <h3 data-az="<span>Garden</span> Resto Pub-a xoş gəlmisiniz" data-en="Welcome to <span>Garden</span> Resto Pub" data-ru="Добро пожаловать в <span>Garden</span> Resto Pub">Welcome to <span>Garden</span> Resto Pub</h3>
+            <p data-az="Gəncənin mərkəzində yerləşən Garden Resto Pub, premium yemək və canlı pub atmosferinin unikal birləşməsini təqdim edir. Diqqətlə hazırlanmış menyumuz ən yaxşı ətləri, təzə dəniz məhsullarını, kraft pivələri və geniş spirtli içki kolleksiyasını əhatə edir."
+               data-en="Nestled in the heart of Ganja, Garden Resto Pub offers a unique blend of premium dining and vibrant pub atmosphere. Our carefully curated menu features the finest meats, fresh seafood, craft beers, and an extensive spirits collection."
                data-ru="Расположенный в самом сердце Гянджи, Garden Resto Pub предлагает уникальное сочетание премиального ресторана и атмосферного паба. Наше тщательно составленное меню включает лучшее мясо, свежие морепродукты, крафтовое пиво и обширную коллекцию напитков.">
                 Nestled in the heart of Ganja, Garden Resto Pub offers a unique blend of premium dining and vibrant pub atmosphere. Our carefully curated menu features the finest meats, fresh seafood, craft beers, and an extensive spirits collection.
             </p>
-            <p data-en="Whether you're here for a business dinner, a night out with friends, or a relaxing hookah session, we provide an unforgettable experience in an elegant setting."
+            <p data-az="İstər işgüzar nahar, istər dostlarla axşam, istərsə də rahatladıcı qəlyan seansı olsun, biz zərif mühitdə unudulmaz təcrübə təmin edirik."
+               data-en="Whether you're here for a business dinner, a night out with friends, or a relaxing hookah session, we provide an unforgettable experience in an elegant setting."
                data-ru="Будь то деловой ужин, вечер с друзьями или расслабляющий кальян -- мы обеспечим незабываемый опыт в элегантной обстановке.">
                 Whether you're here for a business dinner, a night out with friends, or a relaxing hookah session, we provide an unforgettable experience in an elegant setting.
             </p>
             <div class="about-features">
                 <div class="about-feature">
                     <i class="fas fa-utensils"></i>
-                    <span data-en="Premium Cuisine" data-ru="Премиум кухня">Premium Cuisine</span>
+                    <span data-az="Premium mətbəx" data-en="Premium Cuisine" data-ru="Премиум кухня">Premium Cuisine</span>
                 </div>
                 <div class="about-feature">
                     <i class="fas fa-beer-mug-empty"></i>
-                    <span data-en="Craft Beers" data-ru="Крафтовое пиво">Craft Beers</span>
+                    <span data-az="Kraft pivələr" data-en="Craft Beers" data-ru="Крафтовое пиво">Craft Beers</span>
                 </div>
                 <div class="about-feature">
                     <i class="fas fa-wine-glass"></i>
-                    <span data-en="Fine Spirits" data-ru="Элитные напитки">Fine Spirits</span>
+                    <span data-az="Elit içkilər" data-en="Fine Spirits" data-ru="Элитные напитки">Fine Spirits</span>
                 </div>
                 <div class="about-feature">
                     <i class="fas fa-wind"></i>
-                    <span data-en="Premium Hookah" data-ru="Премиум кальян">Premium Hookah</span>
+                    <span data-az="Premium qəlyan" data-en="Premium Hookah" data-ru="Премиум кальян">Premium Hookah</span>
                 </div>
             </div>
         </div>
@@ -887,63 +942,64 @@
 <!-- MENU -->
 <section id="menu">
     <div class="section-header reveal">
-        <div class="section-tag" data-en="Our Menu" data-ru="Наше меню">Our Menu</div>
-        <h2 class="section-title" data-en="Taste the Excellence" data-ru="Вкус совершенства">Taste the Excellence</h2>
+        <div class="section-tag" data-az="Menyumuz" data-en="Our Menu" data-ru="Наше меню">Our Menu</div>
+        <h2 class="section-title" data-az="Mükəmməlliyin dadı" data-en="Taste the Excellence" data-ru="Вкус совершенства">Taste the Excellence</h2>
         <div class="section-line"></div>
-        <p class="section-desc" data-en="From savory appetizers to premium spirits, every item is crafted to perfection." data-ru="От изысканных закусок до премиальных напитков -- каждое блюдо создано до совершенства.">From savory appetizers to premium spirits, every item is crafted to perfection.</p>
+        <p class="section-desc" data-az="Ləzzətli qəlyanaltılardan premium içkilərə qədər, hər bir məhsul mükəmməl hazırlanır." data-en="From savory appetizers to premium spirits, every item is crafted to perfection." data-ru="От изысканных закусок до премиальных напитков -- каждое блюдо создано до совершенства.">From savory appetizers to premium spirits, every item is crafted to perfection.</p>
     </div>
 
     <div class="menu-categories reveal" id="menuCategories"></div>
     <div class="menu-grid" id="menuGrid"></div>
-    <p class="menu-note reveal" data-en="View our full menu with 300+ items on <a href='https://gardenrestopub.clopos.menu/az/1/products' target='_blank'>our digital menu</a>"
-       data-ru="Полное меню с 300+ позициями на <a href='https://gardenrestopub.clopos.menu/az/1/products' target='_blank'>нашем цифровом меню</a>">
-        View our full menu with 300+ items on <a href="https://gardenrestopub.clopos.menu/az/1/products" target="_blank">our digital menu</a>
+    <p class="menu-note reveal" data-az="Rəqəmsal menyumuza da baxa bilərsiniz: <a href='https://gardenrestopub.clopos.menu/az/1/products' target='_blank'>rəqəmsal menyu</a>"
+       data-en="Also available on <a href='https://gardenrestopub.clopos.menu/az/1/products' target='_blank'>our digital menu</a>"
+       data-ru="Также доступно на <a href='https://gardenrestopub.clopos.menu/az/1/products' target='_blank'>нашем цифровом меню</a>">
+        Also available on <a href="https://gardenrestopub.clopos.menu/az/1/products" target="_blank">our digital menu</a>
     </p>
 </section>
 
 <!-- GALLERY -->
 <section id="gallery">
     <div class="section-header reveal">
-        <div class="section-tag" data-en="Gallery" data-ru="Галерея">Gallery</div>
-        <h2 class="section-title" data-en="Our Atmosphere" data-ru="Наша атмосфера">Our Atmosphere</h2>
+        <div class="section-tag" data-az="Qalereya" data-en="Gallery" data-ru="Галерея">Gallery</div>
+        <h2 class="section-title" data-az="Atmosferimiz" data-en="Our Atmosphere" data-ru="Наша атмосфера">Our Atmosphere</h2>
         <div class="section-line"></div>
-        <p class="section-desc" data-en="A glimpse into the Garden Resto Pub experience" data-ru="Загляните в мир Garden Resto Pub">A glimpse into the Garden Resto Pub experience</p>
+        <p class="section-desc" data-az="Garden Resto Pub təcrübəsinə bir baxış" data-en="A glimpse into the Garden Resto Pub experience" data-ru="Загляните в мир Garden Resto Pub">A glimpse into the Garden Resto Pub experience</p>
     </div>
     <div class="gallery-grid reveal">
         <div class="gallery-item">
             <div class="gallery-placeholder">
                 <i class="fas fa-champagne-glasses"></i>
-                <span data-en="The Lounge" data-ru="Лаунж зона">The Lounge</span>
+                <span data-az="Lauinj" data-en="The Lounge" data-ru="Лаунж зона">The Lounge</span>
             </div>
         </div>
         <div class="gallery-item">
             <div class="gallery-placeholder">
                 <i class="fas fa-utensils"></i>
-                <span data-en="Fine Dining" data-ru="Ресторан">Fine Dining</span>
+                <span data-az="Restoran" data-en="Fine Dining" data-ru="Ресторан">Fine Dining</span>
             </div>
         </div>
         <div class="gallery-item">
             <div class="gallery-placeholder">
                 <i class="fas fa-beer-mug-empty"></i>
-                <span data-en="The Bar" data-ru="Бар">The Bar</span>
+                <span data-az="Bar" data-en="The Bar" data-ru="Бар">The Bar</span>
             </div>
         </div>
         <div class="gallery-item">
             <div class="gallery-placeholder">
                 <i class="fas fa-leaf"></i>
-                <span data-en="Garden Terrace" data-ru="Терраса">Garden Terrace</span>
+                <span data-az="Terrasa" data-en="Garden Terrace" data-ru="Терраса">Garden Terrace</span>
             </div>
         </div>
         <div class="gallery-item">
             <div class="gallery-placeholder">
                 <i class="fas fa-wind"></i>
-                <span data-en="Hookah Lounge" data-ru="Кальян зона">Hookah Lounge</span>
+                <span data-az="Qəlyan zonası" data-en="Hookah Lounge" data-ru="Кальян зона">Hookah Lounge</span>
             </div>
         </div>
         <div class="gallery-item">
             <div class="gallery-placeholder">
                 <i class="fas fa-music"></i>
-                <span data-en="Live Events" data-ru="Мероприятия">Live Events</span>
+                <span data-az="Canlı tədbirlər" data-en="Live Events" data-ru="Мероприятия">Live Events</span>
             </div>
         </div>
     </div>
@@ -952,8 +1008,8 @@
 <!-- CONTACT -->
 <section id="contact">
     <div class="section-header reveal">
-        <div class="section-tag" data-en="Get in Touch" data-ru="Свяжитесь с нами">Get in Touch</div>
-        <h2 class="section-title" data-en="Contact Us" data-ru="Контакты">Contact Us</h2>
+        <div class="section-tag" data-az="Bizimlə əlaqə" data-en="Get in Touch" data-ru="Свяжитесь с нами">Get in Touch</div>
+        <h2 class="section-title" data-az="Əlaqə" data-en="Contact Us" data-ru="Контакты">Contact Us</h2>
         <div class="section-line"></div>
     </div>
     <div class="contact-grid">
@@ -961,14 +1017,14 @@
             <div class="contact-info-item">
                 <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                 <div>
-                    <div class="contact-info-label" data-en="Address" data-ru="Адрес">Address</div>
-                    <div class="contact-info-value" data-en="Mahsati Ganjavi st. 30, Ganja, Azerbaijan" data-ru="ул. Мехсети Гянджеви 30, Гянджа, Азербайджан">Mahsati Ganjavi st. 30, Ganja, Azerbaijan</div>
+                    <div class="contact-info-label" data-az="Ünvan" data-en="Address" data-ru="Адрес">Address</div>
+                    <div class="contact-info-value" data-az="Məhsəti Gəncəvi küç. 30, Gəncə" data-en="Mahsati Ganjavi st. 30, Ganja, Azerbaijan" data-ru="ул. Мехсети Гянджеви 30, Гянджа, Азербайджан">Mahsati Ganjavi st. 30, Ganja, Azerbaijan</div>
                 </div>
             </div>
             <div class="contact-info-item">
                 <div class="contact-icon"><i class="fas fa-phone"></i></div>
                 <div>
-                    <div class="contact-info-label" data-en="Phone" data-ru="Телефон">Phone</div>
+                    <div class="contact-info-label" data-az="Telefon" data-en="Phone" data-ru="Телефон">Phone</div>
                     <div class="contact-info-value">
                         <a href="tel:+994552383852">+994 55 238 38 52</a><br>
                         <a href="tel:+994513208383">051 320 83 83</a>
@@ -978,14 +1034,14 @@
             <div class="contact-info-item">
                 <div class="contact-icon"><i class="fas fa-clock"></i></div>
                 <div>
-                    <div class="contact-info-label" data-en="Working Hours" data-ru="Часы работы">Working Hours</div>
-                    <div class="contact-info-value" data-en="Open Daily" data-ru="Открыто ежедневно">Open Daily</div>
+                    <div class="contact-info-label" data-az="İş saatları" data-en="Working Hours" data-ru="Часы работы">Working Hours</div>
+                    <div class="contact-info-value" data-az="Hər gün 12:00–00:00" data-en="Open Daily 12:00–00:00" data-ru="Ежедневно 12:00–00:00">Open Daily 12:00–00:00</div>
                 </div>
             </div>
             <div class="contact-info-item">
                 <div class="contact-icon"><i class="fas fa-list"></i></div>
                 <div>
-                    <div class="contact-info-label" data-en="Digital Menu" data-ru="Цифровое меню">Digital Menu</div>
+                    <div class="contact-info-label" data-az="Rəqəmsal menyu" data-en="Digital Menu" data-ru="Цифровое меню">Digital Menu</div>
                     <div class="contact-info-value"><a href="https://gardenrestopub.clopos.menu/az/1/products" target="_blank">gardenrestopub.clopos.menu</a></div>
                 </div>
             </div>
@@ -1006,162 +1062,91 @@
     <div class="footer-brand">GARDEN RESTO PUB</div>
     <div class="footer-copy">&copy; 2026 Garden Resto Pub. All rights reserved.</div>
     <div class="footer-links">
-        <a href="#hero" data-en="Home" data-ru="Главная">Home</a>
-        <a href="#menu" data-en="Menu" data-ru="Меню">Menu</a>
-        <a href="#contact" data-en="Contact" data-ru="Контакты">Contact</a>
+        <a href="#hero" data-az="Ana səhifə" data-en="Home" data-ru="Главная">Home</a>
+        <a href="#menu" data-az="Menyu" data-en="Menu" data-ru="Меню">Menu</a>
+        <a href="#contact" data-az="Əlaqə" data-en="Contact" data-ru="Контакты">Contact</a>
     </div>
 </footer>
 
 <script>
-// ===== MENU DATA =====
-const menuData = {
-    en: {
-        "Cold Appetizers": [
-            { name: "Chicken Schnitzel", price: "8", desc: "Crispy fried chicken" },
-            { name: "Shrimp Tea (150g)", price: "9", desc: "Premium shrimp" },
-            { name: "Sea Shrimp (150g)", price: "8", desc: "Ocean fresh" },
-            { name: "Shrimp Tempura", price: "13", desc: "Japanese style" },
-            { name: "Shrimp in Sauce (6 pcs)", price: "15", desc: "Chef's special sauce" },
-            { name: "Squid Rings", price: "8", desc: "Golden fried" },
-            { name: "Onion Rings", price: "3", desc: "Crispy battered" },
-            { name: "Cheese Sticks", price: "5", desc: "Melted cheese" },
-            { name: "Cheese Balls", price: "4", desc: "Garden special" },
-            { name: "Meat Cured", price: "6", desc: "Premium cut" }
-        ],
-        "Beer Snacks": [
-            { name: "Lays Chips", price: "3", desc: "Classic" },
-            { name: "Mushroom Chips", price: "5", desc: "House special" },
-            { name: "Croutons Plain", price: "4", desc: "Oven baked" },
-            { name: "Croutons with Cheese", price: "6", desc: "Topped with cheese" },
-            { name: "Chicken Popcorn", price: "5", desc: "Bite-sized" },
-            { name: "BBQ Chicken Wings", price: "4", desc: "Smoky BBQ glaze" },
-            { name: "Pistachio (100g)", price: "7.5", desc: "Premium roasted" },
-            { name: "Quail", price: "5", desc: "Grilled" },
-            { name: "String Cheese", price: "3", desc: "Handmade" },
-            { name: "Roasted Chickpeas", price: "2", desc: "Salted" }
-        ],
-        "Draft Beers": [
-            { name: "Xirdalan 0.33L", price: "1.9", desc: "Local classic" },
-            { name: "Xirdalan 0.5L", price: "2.2", desc: "Local classic" },
-            { name: "Xirdalan NF 0.33L", price: "2", desc: "Non-filtered" }
-        ],
-        "Meat & Poultry": [
-            { name: "Chicken Shish", price: "8", desc: "Grilled on charcoal" },
-            { name: "Lamb Kebab", price: "12", desc: "Premium lamb" },
-            { name: "Mixed Grill", price: "18", desc: "Chef's selection" },
-            { name: "Beef Steak", price: "20", desc: "Prime cut" },
-            { name: "Grilled Chicken", price: "10", desc: "Marinated & grilled" }
-        ],
-        "Soups": [
-            { name: "Mushroom Cream Soup", price: "5", desc: "Velvety smooth" },
-            { name: "Chicken Soup", price: "4", desc: "Homestyle" },
-            { name: "Lentil Soup", price: "3.5", desc: "Traditional" }
-        ],
-        "Salads": [
-            { name: "Caesar Salad", price: "8", desc: "Classic recipe" },
-            { name: "Garden Salad", price: "6", desc: "House special" },
-            { name: "Greek Salad", price: "7", desc: "Mediterranean" }
-        ],
-        "Hookah": [
-            { name: "Premium Hookah", price: "15", desc: "Top brands" },
-            { name: "Fruit Hookah", price: "20", desc: "Fresh fruit bowl" },
-            { name: "Classic Hookah", price: "12", desc: "Traditional" }
-        ],
-        "Spirits & Whisky": [
-            { name: "Jack Daniel's (50ml)", price: "8", desc: "Tennessee" },
-            { name: "Jameson (50ml)", price: "7", desc: "Irish" },
-            { name: "Chivas Regal (50ml)", price: "10", desc: "Blended Scotch" },
-            { name: "Hennessy VS (50ml)", price: "12", desc: "Cognac" }
-        ],
-        "Wines": [
-            { name: "House Red Wine", price: "8", desc: "Glass" },
-            { name: "House White Wine", price: "8", desc: "Glass" },
-            { name: "Premium Red", price: "35", desc: "Bottle" }
-        ],
-        "Non-Alcoholic": [
-            { name: "Fresh Juice", price: "4", desc: "Seasonal fruit" },
-            { name: "Coca-Cola", price: "2", desc: "0.33L" },
-            { name: "Mineral Water", price: "1.5", desc: "0.5L" },
-            { name: "Tea", price: "3", desc: "Selection" },
-            { name: "Turkish Coffee", price: "3", desc: "Traditional" }
-        ]
-    },
-    ru: {
-        "Холодные закуски": [
-            { name: "Куриный шницель", price: "8", desc: "Хрустящая курица" },
-            { name: "Креветки (150г)", price: "9", desc: "Премиум креветки" },
-            { name: "Морские креветки (150г)", price: "8", desc: "Свежие" },
-            { name: "Креветки темпура", price: "13", desc: "Японский стиль" },
-            { name: "Креветки в соусе (6 шт)", price: "15", desc: "Фирменный соус" },
-            { name: "Кольца кальмара", price: "8", desc: "Золотистые" },
-            { name: "Луковые кольца", price: "3", desc: "Хрустящие" },
-            { name: "Сырные палочки", price: "5", desc: "Плавленый сыр" },
-            { name: "Сырные шарики", price: "4", desc: "Фирменные" },
-            { name: "Мясная нарезка", price: "6", desc: "Премиум" }
-        ],
-        "Пивные закуски": [
-            { name: "Чипсы Лейс", price: "3", desc: "Классические" },
-            { name: "Грибные чипсы", price: "5", desc: "Фирменные" },
-            { name: "Гренки", price: "4", desc: "Запеченные" },
-            { name: "Гренки с сыром", price: "6", desc: "С сырной корочкой" },
-            { name: "Куриный попкорн", price: "5", desc: "Кусочки" },
-            { name: "Крылышки BBQ", price: "4", desc: "Копченый соус" },
-            { name: "Фисташки (100г)", price: "7.5", desc: "Жареные" },
-            { name: "Перепелка", price: "5", desc: "Гриль" },
-            { name: "Сыр-косичка", price: "3", desc: "Ручной работы" },
-            { name: "Жареный нут", price: "2", desc: "Солёный" }
-        ],
-        "Разливное пиво": [
-            { name: "Хырдалан 0.33л", price: "1.9", desc: "Местное классическое" },
-            { name: "Хырдалан 0.5л", price: "2.2", desc: "Местное классическое" },
-            { name: "Хырдалан НФ 0.33л", price: "2", desc: "Нефильтрованное" }
-        ],
-        "Мясо и птица": [
-            { name: "Куриный шиш", price: "8", desc: "На углях" },
-            { name: "Кебаб из баранины", price: "12", desc: "Премиум баранина" },
-            { name: "Микс гриль", price: "18", desc: "Выбор шефа" },
-            { name: "Стейк из говядины", price: "20", desc: "Премиум отруб" },
-            { name: "Курица гриль", price: "10", desc: "Маринованная" }
-        ],
-        "Супы": [
-            { name: "Грибной крем-суп", price: "5", desc: "Бархатистый" },
-            { name: "Куриный суп", price: "4", desc: "Домашний" },
-            { name: "Чечевичный суп", price: "3.5", desc: "Традиционный" }
-        ],
-        "Салаты": [
-            { name: "Салат Цезарь", price: "8", desc: "Классический" },
-            { name: "Салат Гарден", price: "6", desc: "Фирменный" },
-            { name: "Греческий салат", price: "7", desc: "Средиземноморский" }
-        ],
-        "Кальян": [
-            { name: "Премиум кальян", price: "15", desc: "Топ бренды" },
-            { name: "Фруктовый кальян", price: "20", desc: "На фруктовой чаше" },
-            { name: "Классический кальян", price: "12", desc: "Традиционный" }
-        ],
-        "Виски и спиртные": [
-            { name: "Jack Daniel's (50мл)", price: "8", desc: "Теннесси" },
-            { name: "Jameson (50мл)", price: "7", desc: "Ирландский" },
-            { name: "Chivas Regal (50мл)", price: "10", desc: "Купажированный" },
-            { name: "Hennessy VS (50мл)", price: "12", desc: "Коньяк" }
-        ],
-        "Вина": [
-            { name: "Красное домашнее", price: "8", desc: "Бокал" },
-            { name: "Белое домашнее", price: "8", desc: "Бокал" },
-            { name: "Премиум красное", price: "35", desc: "Бутылка" }
-        ],
-        "Безалкогольные": [
-            { name: "Свежий сок", price: "4", desc: "Сезонные фрукты" },
-            { name: "Кока-Кола", price: "2", desc: "0.33л" },
-            { name: "Минеральная вода", price: "1.5", desc: "0.5л" },
-            { name: "Чай", price: "3", desc: "На выбор" },
-            { name: "Турецкий кофе", price: "3", desc: "Традиционный" }
-        ]
-    }
-};
+const PREVIEW_COUNT = 5;
+const menuData = [
+{cat:{az:"Pivə çərəzləri",en:"Beer Snacks",ru:"Пивные закуски"},items:[
+{az:"Toyuq cersi",en:"Chicken Schnitzel",ru:"Куриный шницель",p:8},{az:"Krivetka çay 150 qr",en:"Shrimp Tea 150g",ru:"Креветка чай 150г",p:9},{az:"Krivetka dəniz 150 qr",en:"Sea Shrimp 150g",ru:"Морская креветка 150г",p:8},{az:"Krivetka tempura",en:"Shrimp Tempura",ru:"Креветка темпура",p:13},{az:"Krivetka souslu (6 əd)",en:"Shrimp in Sauce (6 pcs)",ru:"Креветка в соусе (6 шт)",p:15},{az:"Kalmar halqa",en:"Squid Rings",ru:"Кольца кальмара",p:8},{az:"Soğan halqa",en:"Onion Rings",ru:"Луковые кольца",p:3},{az:"Çips Lays",en:"Lays Chips",ru:"Чипсы Лейс",p:3},{az:"Çipsi göbələk",en:"Mushroom Chips",ru:"Грибные чипсы",p:5},{az:"Suxari",en:"Croutons",ru:"Сухари",p:2},{az:"Qrenki sadə",en:"Plain Croutons",ru:"Гренки",p:4},{az:"Qrenki pendirli",en:"Cheese Croutons",ru:"Гренки с сыром",p:6},{az:"Ağ Tum",en:"White Seeds",ru:"Белые семечки",p:2},{az:"Ət basdırma",en:"Cured Meat",ru:"Бастурма",p:6},{az:"Garden pendir topları",en:"Garden Cheese Balls",ru:"Сырные шарики Garden",p:4},{az:"Pendir-saçaq sadə",en:"String Cheese",ru:"Сыр-косичка",p:3},{az:"Araxis",en:"Peanuts",ru:"Арахис",p:3},{az:"Fistyaşka 100 qr",en:"Pistachio 100g",ru:"Фисташки 100г",p:7.5},{az:"Haça",en:"Hacha Snack",ru:"Хача",p:3.5},{az:"Bildirçin",en:"Quail",ru:"Перепёлка",p:5},{az:"Toyuq popcorn",en:"Chicken Popcorn",ru:"Куриный попкорн",p:5},{az:"Toyuq qanad BBQ sousda",en:"BBQ Chicken Wings",ru:"Крылышки BBQ",p:4},{az:"Femi",en:"Femi",ru:"Феми",p:5.5},{az:"Gürcü xəngəli qızartma 1 əd",en:"Fried Georgian Khinkali 1pc",ru:"Жареные хинкали 1шт",p:1.4},{az:"Pendir çubuqları",en:"Cheese Sticks",ru:"Сырные палочки",p:5},{az:"Pendir-saçaq qızartma",en:"Fried String Cheese",ru:"Жареный сыр-косичка",p:4.2},{az:"Rolton",en:"Rolton Noodles",ru:"Роллтон",p:0.5},{az:"Sous",en:"Sauce",ru:"Соус",p:0.5},{az:"Ağ Tum qovrulmuş",en:"Roasted White Seeds",ru:"Жареные белые семечки",p:2.5},{az:"Sardelka qaynadılmış 2 əd",en:"Boiled Sausage 2pcs",ru:"Варёная сарделька 2шт",p:5.3},{az:"Sardelka qızardılmış 2 əd",en:"Fried Sausage 2pcs",ru:"Жареная сарделька 2шт",p:5.5},{az:"İveriya qaynadılmış 3 əd",en:"Boiled Iveriya 3pcs",ru:"Варёная Иверия 3шт",p:5.5},{az:"İveriya qızardılmış 3 əd",en:"Fried Iveriya 3pcs",ru:"Жареная Иверия 3шт",p:6},{az:"Qara Tum",en:"Black Seeds",ru:"Чёрные семечки",p:2},{az:"Qara Tum qovrulmuş",en:"Roasted Black Seeds",ru:"Жареные чёрные семечки",p:2.5},{az:"Mini qutab",en:"Mini Qutab",ru:"Мини кутаб",p:3.5},{az:"Garden konfet",en:"Garden Candy",ru:"Конфеты Garden",p:4},{az:"Anchos",en:"Anchovies",ru:"Анчоусы",p:7},{az:"Krakov kolbasa",en:"Krakow Sausage",ru:"Краковская колбаса",p:12},{az:"BBQ sous",en:"BBQ Sauce",ru:"Соус BBQ",p:1},{az:"Sweetchili sous",en:"Sweet Chili Sauce",ru:"Соус Свит Чили",p:1},{az:"Garden popcorn",en:"Garden Popcorn",ru:"Попкорн Garden",p:4.5},{az:"Garden cipsi",en:"Garden Chips",ru:"Чипсы Garden",p:3.5},{az:"Kilkə",en:"Sprat",ru:"Килька",p:3},{az:"Krivetka popcorn",en:"Shrimp Popcorn",ru:"Креветка попкорн",p:10},{az:"Garden boğaz",en:"Garden Throat",ru:"Garden богаз",p:5},{az:"Garden pötənə qızartma",en:"Garden Fried Potene",ru:"Garden pötənə жареная",p:6},{az:"Garden pötənə turşulu",en:"Garden Pickled Potene",ru:"Garden pötənə маринованная",p:6.5},{az:"Garden pötənə BBQ souslu",en:"Garden BBQ Potene",ru:"Garden pötənə BBQ",p:6.5},{az:"Garden boğaz turşulu",en:"Garden Pickled Throat",ru:"Garden богаз маринованный",p:5.5},{az:"Garden boğaz BBQ souslu",en:"Garden BBQ Throat",ru:"Garden богаз BBQ",p:5.5},{az:"Garden düşbər",en:"Garden Dushbar",ru:"Garden дюшбере",p:4},{az:"Garden kolbasa top",en:"Garden Sausage Ball",ru:"Колбасный шарик Garden",p:5.5},{az:"Garden file",en:"Garden Fillet",ru:"Филе Garden",p:5},{az:"Antep fıstığı 100 qr",en:"Antep Pistachio 100g",ru:"Антеп фисташки 100г",p:9.5},{az:"Garden basdırma",en:"Garden Cured Meat",ru:"Бастурма Garden",p:5},{az:"Sardelka qaynadılmış 3 əd (Pendirli)",en:"Boiled Cheese Sausage 3pcs",ru:"Варёная сарделька с сыром 3шт",p:6.5},{az:"Basdırma gürcü",en:"Georgian Cured Meat",ru:"Грузинская бастурма",p:7},{az:"Edamamme",en:"Edamame",ru:"Эдамаме",p:5.5},{az:"Dorado hisə verilmiş",en:"Smoked Dorado",ru:"Дорадо копчёное",p:18},{az:"Farel hisə verilmiş",en:"Smoked Trout",ru:"Форель копчёная",p:9.5},{az:"Skrumbiya",en:"Mackerel",ru:"Скумбрия",p:12},{az:"Çebureki",en:"Chebureki",ru:"Чебуреки",p:3.5},{az:"Noxud sadə",en:"Plain Chickpeas",ru:"Нут",p:2}
+]},
+{cat:{az:"Soyuq qəlyanaltılar",en:"Cold Appetizers",ru:"Холодные закуски"},items:[
+{az:"Qatıq saxsı qabda",en:"Yogurt in Clay Pot",ru:"Йогурт в горшочке",p:2},{az:"Ağ pendir",en:"White Cheese",ru:"Белый сыр",p:2.5},{az:"Süzmə",en:"Strained Yogurt",ru:"Сюзьме",p:2},{az:"Acika",en:"Adjika",ru:"Аджика",p:2},{az:"Antep əzmə",en:"Antep Paste",ru:"Антеп эзме",p:3},{az:"Haydari",en:"Haydari",ru:"Хайдари",p:3},{az:"Pendir assorti",en:"Cheese Platter",ru:"Сырная тарелка",p:7.5},{az:"Turşu assorti",en:"Pickles Platter",ru:"Ассорти солений",p:5},{az:"Alça turşusu",en:"Cherry Plum Pickle",ru:"Алыча солёная",p:2},{az:"Zeytun ağ",en:"Green Olives",ru:"Зелёные оливки",p:3},{az:"Vişnə əzməsi",en:"Cherry Paste",ru:"Вишнёвая паста",p:3},{az:"Xiyar turşu",en:"Pickled Cucumber",ru:"Солёный огурец",p:2},{az:"Limon",en:"Lemon",ru:"Лимон",p:1},{az:"Limonlu markof",en:"Lemon Carrot",ru:"Морковь с лимоном",p:2},{az:"Limonlu xiyar dilimləri",en:"Lemon Cucumber Slices",ru:"Огурец с лимоном",p:3},{az:"Göy assorti",en:"Green Platter",ru:"Зелень ассорти",p:4},{az:"Zeytun qara",en:"Black Olives",ru:"Чёрные оливки",p:3},{az:"Kartof soyutma",en:"Potato Soyutma",ru:"Картофель сoютма",p:2},{az:"Zoğal turşu",en:"Dogwood Pickle",ru:"Кизил солёный",p:2},{az:"Pendir motal",en:"Motal Cheese",ru:"Сыр мотал",p:5},{az:"Pomidor turşusu",en:"Pickled Tomato",ru:"Солёный помидор",p:2},{az:"Acı bibər sveji",en:"Fresh Hot Pepper",ru:"Острый перец свежий",p:0.7},{az:"Kələm turşusu",en:"Pickled Cabbage",ru:"Квашеная капуста",p:2},{az:"Bibər turşusu",en:"Pickled Pepper",ru:"Солёный перец",p:2},{az:"Mozarella pendir",en:"Mozzarella",ru:"Моцарелла",p:2},{az:"Holland pendir",en:"Dutch Cheese",ru:"Голландский сыр",p:2},{az:"Çeri pomidor turşusu",en:"Pickled Cherry Tomato",ru:"Солёные черри",p:3},{az:"Kərə yağı",en:"Butter",ru:"Сливочное масло",p:2},{az:"Sveji pomidor",en:"Fresh Tomato",ru:"Свежий помидор",p:2},{az:"Sarımsaq turşusu",en:"Pickled Garlic",ru:"Солёный чеснок",p:4},{az:"Paytaxt salatı",en:"Capital Salad",ru:"Столичный салат",p:8},{az:"Spagetti bolonez",en:"Spaghetti Bolognese",ru:"Спагетти болоньезе",p:7},{az:"Çörək",en:"Bread",ru:"Хлеб",p:1.5},{az:"Çörək qara",en:"Black Bread",ru:"Чёрный хлеб",p:1.5},{az:"Çörək qarışıq",en:"Mixed Bread",ru:"Хлеб ассорти",p:2.5},{az:"Xiyar sveji",en:"Fresh Cucumber",ru:"Свежий огурец",p:2},{az:"Lavaş",en:"Lavash",ru:"Лаваш",p:1.5}
+]},
+{cat:{az:"İsti qəlyanaltılar",en:"Hot Appetizers",ru:"Горячие закуски"},items:[
+{az:"Nuggets fri",en:"Nuggets & Fries",ru:"Наггетсы с картошкой",p:5},{az:"Toyuq şnitzel",en:"Chicken Schnitzel",ru:"Куриный шницель",p:8},{az:"Toyuq burger",en:"Chicken Burger",ru:"Куриный бургер",p:6},{az:"Ət burger",en:"Meat Burger",ru:"Мясной бургер",p:7.5},{az:"Club Sandwich",en:"Club Sandwich",ru:"Клаб сэндвич",p:7},{az:"Kükü",en:"Kuku Omelette",ru:"Кюкю",p:4.5},{az:"Pomidor-yumurta",en:"Tomato Egg",ru:"Помидор с яйцом",p:4},{az:"Blincik ət",en:"Meat Crepe",ru:"Блинчик с мясом",p:1},{az:"Ət langet",en:"Meat Langet",ru:"Лангет",p:12},{az:"Beefstroqonof",en:"Beef Stroganoff",ru:"Бефстроганов",p:12},{az:"Chickenstroqonof",en:"Chicken Stroganoff",ru:"Куриный строганов",p:10},{az:"Sucuklu yumurta",en:"Sucuk with Egg",ru:"Суджук с яйцом",p:6},{az:"Gürcü xəngəli 1 əd",en:"Georgian Khinkali 1pc",ru:"Хинкали 1шт",p:1.2},{az:"Kaşarlı tost",en:"Cheese Toast",ru:"Тост с кашаром",p:3.5},{az:"Sucuklu tost",en:"Sucuk Toast",ru:"Тост с суджуком",p:4.5},{az:"Kartof fri",en:"French Fries",ru:"Картофель фри",p:3},{az:"Sosika yumurta",en:"Sausage with Egg",ru:"Сосиска с яйцом",p:5},{az:"Toyuq dürüm",en:"Chicken Wrap",ru:"Куриный дюрюм",p:6},{az:"Ət dürüm",en:"Meat Wrap",ru:"Мясной дюрюм",p:8},{az:"Ev sayağı kartof qızartma",en:"Home-style Fried Potato",ru:"Жареная картошка по-домашнему",p:3.5},{az:"Soyutma yumurta 4 əd",en:"Soyutma Egg 4pcs",ru:"Сoютма с яйцом 4шт",p:2},{az:"Düyü",en:"Rice",ru:"Рис",p:3},{az:"Garden rulet",en:"Garden Roulade",ru:"Рулет Garden",p:15},{az:"Pomidor yumurta holland pendirli",en:"Tomato Egg with Dutch Cheese",ru:"Помидор с яйцом и голландским сыром",p:5},{az:"Qlazok (2 əd yum)",en:"Fried Eggs (2 pcs)",ru:"Глазунья (2 яйца)",p:3},{az:"Südlü sosiska 3 əd",en:"Milk Sausage 3pcs",ru:"Молочные сосиски 3шт",p:5.5},{az:"Manqalüstü (3 əd) qızartma",en:"Grilled Sausage 3pcs",ru:"Жареные на мангале 3шт",p:5.5},{az:"Manqalüstü (3 əd) qaynadılmış",en:"Boiled Sausage 3pcs",ru:"Варёные на мангале 3шт",p:5}
+]},
+{cat:{az:"Ət və toyuq yeməkləri",en:"Meat & Poultry",ru:"Мясо и птица"},items:[
+{az:"Quzu sac",en:"Lamb Saj",ru:"Баранина садж",p:26},{az:"Yarpaq dolması",en:"Grape Leaf Dolma",ru:"Долма из виноградных листьев",p:7},{az:"Kənd çolpası sac",en:"Village Chicken Saj",ru:"Деревенская курица садж",p:20},{az:"Qarışıq sac",en:"Mixed Saj",ru:"Микс садж",p:30},{az:"Tabaka çolpa",en:"Tabaka Chicken",ru:"Цыплёнок табака",p:15},{az:"Kefli beçə",en:"Drunk Quail",ru:"Пьяный перепел",p:17},{az:"Tşonka kartoflu",en:"Stew with Potato",ru:"Тушёнка с картошкой",p:8},{az:"Nar qovurma quzu",en:"Pomegranate Lamb",ru:"Наровурма баранина",p:12},{az:"Nar qovurma can əti",en:"Pomegranate Veal",ru:"Наровурма телятина",p:11},{az:"Nar qovurma kənd çolpa",en:"Pomegranate Village Chicken",ru:"Наровурма деревенская курица",p:18},{az:"Şirəli çolpa",en:"Juicy Chicken",ru:"Сочная курица",p:16},{az:"Quzu maça (zoğal/albalı/nar)",en:"Lamb Shank (dogwood/cherry/pom.)",ru:"Баранья рулька (кизил/вишня/гранат)",p:12},{az:"Quzu maça şabalıdlı",en:"Lamb Shank with Chestnut",ru:"Баранья рулька с каштаном",p:14},{az:"Katlet yumurta tava",en:"Cutlet Egg Pan",ru:"Котлета с яйцом на сковороде",p:9.5},{az:"Kartoflu quzu içalat",en:"Lamb Innards with Potato",ru:"Бараньи потроха с картошкой",p:7.5},{az:"Çolpa turşulu",en:"Pickled Chicken",ru:"Курица в маринаде",p:16},{az:"Limonlu çolpa",en:"Lemon Chicken",ru:"Курица с лимоном",p:15.5},{az:"Tuşonka yumurtalı",en:"Stew with Egg",ru:"Тушёнка с яйцом",p:8.5},{az:"Şirəli dana",en:"Juicy Beef",ru:"Сочная говядина",p:16},{az:"Quzu buğlama",en:"Lamb Bughlama",ru:"Буглама из баранины",p:10.5},{az:"Quzu çığırtma",en:"Lamb Chighirtma",ru:"Чыхыртма из баранины",p:14},{az:"Çoban qovurma",en:"Shepherd's Roast",ru:"Чобан говурма",p:12},{az:"Özəl file şiş sousla",en:"Special Fillet Shish with Sauce",ru:"Шиш филе со спец. соусом",p:11},{az:"Xəngəl-file",en:"Khingal Fillet",ru:"Хингал с филе",p:6},{az:"Süzmə xəngəl qiyməli",en:"Strained Khingal with Mince",ru:"Хингал сюзьме с фаршем",p:7.5},{az:"Vişnəli can əti",en:"Cherry Veal",ru:"Телятина с вишней",p:12.5},{az:"Xamada can əti",en:"Khamada Veal",ru:"Хамада телятина",p:12},{az:"Zoğallı can əti",en:"Dogwood Veal",ru:"Телятина с кизилом",p:11},{az:"Quzu xaşlama",en:"Lamb Khashlama",ru:"Хашлама из баранины",p:10},{az:"Bastırma kartoflu",en:"Cured Meat with Potato",ru:"Бастурма с картошкой",p:11},{az:"Jarko",en:"Zharkoye",ru:"Жаркое",p:13},{az:"Soyutma",en:"Soyutma",ru:"Сoютма",p:14.5},{az:"Dana lokum",en:"Beef Lokum",ru:"Говядина локум",p:11.5},{az:"Çolpa xamalı",en:"Chicken Khamali",ru:"Курица хамалы",p:18},{az:"Göbələk qıymalı",en:"Mushroom with Mince",ru:"Грибы с фаршем",p:7.5},{az:"Ekstra qiymə",en:"Extra Mince",ru:"Доп. фарш",p:3},{az:"Limonlu toyuq",en:"Lemon Chicken",ru:"Курица с лимоном",p:15},{az:"Mal ciyəri turşulu",en:"Pickled Beef Liver",ru:"Печень говяжья маринованная",p:12},{az:"Mal əti sac",en:"Beef Saj",ru:"Говядина садж",p:24},{az:"Can əti sac",en:"Veal Saj",ru:"Телятина садж",p:27},{az:"Xamalı quzu",en:"Khamali Lamb",ru:"Баранина хамалы",p:14},{az:"Can əti pivədə",en:"Veal in Beer",ru:"Телятина в пиве",p:12},{az:"Köftə holland pendirli",en:"Meatball with Dutch Cheese",ru:"Кюфта с голландским сыром",p:10.5},{az:"Çolpa xəngəli",en:"Chicken Khingal",ru:"Хингал с курицей",p:10},{az:"Şirəli dana şapalaq",en:"Juicy Beef Shapalaq",ru:"Сочная говядина шапалак",p:17},{az:"Kotlet evsayağı qarnirli",en:"Home-style Cutlet with Garnish",ru:"Котлета по-домашнему с гарниром",p:6},{az:"Nar qovurma toyuq ruleti",en:"Pomegranate Chicken Roulade",ru:"Наровурма куриный рулет",p:10},{az:"Can əti holland pendirli",en:"Veal with Dutch Cheese",ru:"Телятина с голландским сыром",p:13},{az:"Qozlu çolpa xamalı",en:"Walnut Chicken Khamali",ru:"Курица хамалы с орехами",p:20},{az:"Quyruq",en:"Tail Fat",ru:"Курдюк",p:6},{az:"Xoruz ağ əti kartoflu",en:"Rooster White Meat with Potato",ru:"Белое мясо петуха с картошкой",p:9},{az:"Tabaka tərəvəzli",en:"Tabaka with Vegetables",ru:"Табака с овощами",p:22}
+]},
+{cat:{az:"Şorbalar",en:"Soups",ru:"Супы"},items:[
+{az:"Mərci",en:"Lentil Soup",ru:"Чечевичный суп",p:3},{az:"Düşbərə",en:"Dushbara",ru:"Дюшбере",p:4},{az:"Tomat",en:"Tomato Soup",ru:"Томатный суп",p:4},{az:"Doğramac-akroşqa",en:"Okroshka",ru:"Окрошка",p:2},{az:"Salyanka şorba",en:"Solyanka",ru:"Солянка",p:5},{az:"Göbələk",en:"Mushroom Soup",ru:"Грибной суп",p:3.5},{az:"Toyuq",en:"Chicken Soup",ru:"Куриный суп",p:3.5},{az:"Dovğa",en:"Dovga",ru:"Довга",p:3},{az:"Düşbərə yarım",en:"Half Dushbara",ru:"Дюшбере (полпорции)",p:2.5}
+]},
+{cat:{az:"Salatlar",en:"Salads",ru:"Салаты"},items:[
+{az:"Sezar toyuq",en:"Caesar Chicken",ru:"Цезарь с курицей",p:8},{az:"Sezar krivetka",en:"Caesar Shrimp",ru:"Цезарь с креветкой",p:10},{az:"Sezar can əti",en:"Caesar Veal",ru:"Цезарь с телятиной",p:9},{az:"Çoban salatı sadə",en:"Shepherd Salad Plain",ru:"Чобан салат простой",p:4.5},{az:"Çoban salatı pendirli",en:"Shepherd Salad with Cheese",ru:"Чобан салат с сыром",p:5},{az:"Xırt-xırt badımcan",en:"Crispy Eggplant",ru:"Хрустящий баклажан",p:7},{az:"Tuna salatı",en:"Tuna Salad",ru:"Салат с тунцом",p:8},{az:"Julyen",en:"Julienne",ru:"Жульен",p:7},{az:"Yunan salatı",en:"Greek Salad",ru:"Греческий салат",p:7},{az:"Badımcan salatı-əzmə",en:"Eggplant Paste Salad",ru:"Баклажанная паста",p:3}
+]},
+{cat:{az:"Qəlyan",en:"Hookah",ru:"Кальян"},items:[
+{az:"Şərbətli saxsıda",en:"Sherbet in Clay",ru:"Шербет в глиняной",p:15},{az:"Şərbətli almada",en:"Sherbet in Apple",ru:"Шербет в яблоке",p:18},{az:"Şərbətli qreyfut",en:"Sherbet in Grapefruit",ru:"Шербет в грейпфруте",p:20},{az:"Şərbətli qarpız",en:"Sherbet in Watermelon",ru:"Шербет в арбузе",p:22},{az:"Şərbətli ananas",en:"Sherbet in Pineapple",ru:"Шербет в ананасе",p:25},{az:"Premium tütün saxsıda",en:"Premium Tobacco in Clay",ru:"Премиум табак в глиняной",p:20},{az:"Premium tütün almada",en:"Premium Tobacco in Apple",ru:"Премиум табак в яблоке",p:22},{az:"Premium tütün qreyfut",en:"Premium Tobacco in Grapefruit",ru:"Премиум табак в грейпфруте",p:25},{az:"Premium tütün qarpız",en:"Premium Tobacco in Watermelon",ru:"Премиум табак в арбузе",p:26},{az:"Premium tütün ananas",en:"Premium Tobacco in Pineapple",ru:"Премиум табак в ананасе",p:32}
+]},
+{cat:{az:"Çəllək pivələr",en:"Draft Beers",ru:"Разливное пиво"},items:[
+{az:"Xırdalan 0.33",en:"Xirdalan 0.33",ru:"Хырдалан 0.33",p:1.9},{az:"Xırdalan 0.5",en:"Xirdalan 0.5",ru:"Хырдалан 0.5",p:2.2},{az:"Xırdalan NF 0.33",en:"Xirdalan NF 0.33",ru:"Хырдалан НФ 0.33",p:2},{az:"Xırdalan NF 0.5",en:"Xirdalan NF 0.5",ru:"Хырдалан НФ 0.5",p:2.5},{az:"Alvaria 0.33",en:"Alvaria 0.33",ru:"Алвария 0.33",p:4.5},{az:"Alvaria 0.5",en:"Alvaria 0.5",ru:"Алвария 0.5",p:6},{az:"Blanc 0.3",en:"Blanc 0.3",ru:"Бланк 0.3",p:5},{az:"Blanc 0.5",en:"Blanc 0.5",ru:"Бланк 0.5",p:6.5},{az:"Carlsberg 0.33",en:"Carlsberg 0.33",ru:"Карлсберг 0.33",p:5},{az:"Carlsberg 0.5",en:"Carlsberg 0.5",ru:"Карлсберг 0.5",p:6},{az:"NZS 0.3",en:"NZS 0.3",ru:"НЗС 0.3",p:1.6},{az:"NZS 0.5",en:"NZS 0.5",ru:"НЗС 0.5",p:1.8},{az:"NZS NF 0.5",en:"NZS NF 0.5",ru:"НЗС НФ 0.5",p:2.5},{az:"Krombacher 0.5",en:"Krombacher 0.5",ru:"Кромбахер 0.5",p:7},{az:"Heineken 0.5",en:"Heineken 0.5",ru:"Хайнекен 0.5",p:7},{az:"Krombacher 0.3",en:"Krombacher 0.3",ru:"Кромбахер 0.3",p:5},{az:"Heineken 0.3",en:"Heineken 0.3",ru:"Хайнекен 0.3",p:5},{az:"Erdinger 0.5",en:"Erdinger 0.5",ru:"Эрдингер 0.5",p:8},{az:"Erdinger 0.3",en:"Erdinger 0.3",ru:"Эрдингер 0.3",p:6},{az:"Efes 0.5",en:"Efes 0.5",ru:"Эфес 0.5",p:3.8},{az:"Efes 0.3",en:"Efes 0.3",ru:"Эфес 0.3",p:3}
+]},
+{cat:{az:"Butulka pivələr",en:"Bottled Beers",ru:"Бутылочное пиво"},items:[
+{az:"Xırdalan 0",en:"Xirdalan 0%",ru:"Хырдалан 0%",p:3.5},{az:"Miller 0.33 ml",en:"Miller 0.33",ru:"Миллер 0.33",p:5.5},{az:"Heineken 0",en:"Heineken 0%",ru:"Хайнекен 0%",p:4.5},{az:"Efes 0",en:"Efes 0%",ru:"Эфес 0%",p:4.3},{az:"Jiqulovskoe 450 ml",en:"Zhigulovskoye 450ml",ru:"Жигулёвское 450мл",p:3},{az:"Brewel Blanche 330 ml",en:"Brewel Blanche 330ml",ru:"Brewel Blanche 330мл",p:4},{az:"Səlyan Pilsner",en:"Salyan Pilsner",ru:"Сальян Пилснер",p:3},{az:"Səlyan Lager",en:"Salyan Lager",ru:"Сальян Лагер",p:3},{az:"Səlyan Ligga",en:"Salyan Ligga",ru:"Сальян Лигга",p:3},{az:"Brewel Lager",en:"Brewel Lager",ru:"Brewel Лагер",p:4},{az:"Efes Corona",en:"Efes Corona",ru:"Эфес Корона",p:7}
+]},
+{cat:{az:"Viski / Liqueur",en:"Whisky / Liqueur",ru:"Виски / Ликёр"},items:[
+{az:"Jameson 50ml",en:"Jameson 50ml",ru:"Джемесон 50мл",p:5.5},{az:"Jack Daniels 50ml",en:"Jack Daniel's 50ml",ru:"Джек Дэниэлс 50мл",p:6.5},{az:"Chivas 50ml",en:"Chivas 50ml",ru:"Чивас 50мл",p:7},{az:"Monkey 50ml",en:"Monkey Shoulder 50ml",ru:"Monkey Shoulder 50мл",p:7.5},{az:"Jagermaister 50ml",en:"Jagermeister 50ml",ru:"Йегермайстер 50мл",p:6},{az:"Ballantines 50 ml",en:"Ballantine's 50ml",ru:"Баллантайнс 50мл",p:5.5},{az:"Chivas 0.5",en:"Chivas 0.5L",ru:"Чивас 0.5л",p:75},{az:"Chivas 0.7",en:"Chivas 0.7L",ru:"Чивас 0.7л",p:95},{az:"Ballantines 0.7",en:"Ballantine's 0.7L",ru:"Баллантайнс 0.7л",p:70},{az:"Jameson 0.5",en:"Jameson 0.5L",ru:"Джемесон 0.5л",p:65},{az:"Jameson 0.7",en:"Jameson 0.7L",ru:"Джемесон 0.7л",p:75},{az:"Jameson 1 L",en:"Jameson 1L",ru:"Джемесон 1л",p:90},{az:"Jack Daniels 0.5",en:"Jack Daniel's 0.5L",ru:"Джек Дэниэлс 0.5л",p:70},{az:"Jack Daniels 0.7",en:"Jack Daniel's 0.7L",ru:"Джек Дэниэлс 0.7л",p:85},{az:"Jack Daniels 1 L",en:"Jack Daniel's 1L",ru:"Джек Дэниэлс 1л",p:110},{az:"Monkey Shoulder 0.5",en:"Monkey Shoulder 0.5L",ru:"Monkey Shoulder 0.5л",p:80},{az:"Monkey Shoulder 0.7",en:"Monkey Shoulder 0.7L",ru:"Monkey Shoulder 0.7л",p:105},{az:"Ballantines 0.5",en:"Ballantine's 0.5L",ru:"Баллантайнс 0.5л",p:58},{az:"Ballantines 1L",en:"Ballantine's 1L",ru:"Баллантайнс 1л",p:85},{az:"Jagermeister 1 L",en:"Jagermeister 1L",ru:"Йегермайстер 1л",p:85},{az:"Jagermeister 0.7",en:"Jagermeister 0.7L",ru:"Йегермайстер 0.7л",p:70},{az:"Jagermeister 0.5",en:"Jagermeister 0.5L",ru:"Йегермайстер 0.5л",p:60},{az:"Monkey Shoulder 1 L",en:"Monkey Shoulder 1L",ru:"Monkey Shoulder 1л",p:135},{az:"Chivas 18 L",en:"Chivas 18 1L",ru:"Чивас 18 1л",p:250},{az:"Chivas 18 0.7",en:"Chivas 18 0.7L",ru:"Чивас 18 0.7л",p:180},{az:"Sheridan liqueur L",en:"Sheridan's 1L",ru:"Шеридан 1л",p:120},{az:"Sheridan liqueur 0.5",en:"Sheridan's 0.5L",ru:"Шеридан 0.5л",p:80},{az:"Sheridan liqueur 0.7",en:"Sheridan's 0.7L",ru:"Шеридан 0.7л",p:95}
+]},
+{cat:{az:"Teqila",en:"Tequila",ru:"Текила"},items:[
+{az:"Olmega shut",en:"Olmeca Shot",ru:"Олмека шот",p:6.5},{az:"Sierra shut",en:"Sierra Shot",ru:"Сиерра шот",p:6},{az:"Tequila shut 6",en:"Tequila 6 Shots",ru:"Текила 6 шотов",p:33},{az:"Olmega 0.5 L",en:"Olmeca 0.5L",ru:"Олмека 0.5л",p:60},{az:"Olmega 0.7 L",en:"Olmeca 0.7L",ru:"Олмека 0.7л",p:75},{az:"Olmega L",en:"Olmeca 1L",ru:"Олмека 1л",p:85},{az:"Sierra L",en:"Sierra 1L",ru:"Сиерра 1л",p:85},{az:"Sierra 0.7 L",en:"Sierra 0.7L",ru:"Сиерра 0.7л",p:70},{az:"Sierra 0.5 L",en:"Sierra 0.5L",ru:"Сиерра 0.5л",p:60}
+]},
+{cat:{az:"Rakı",en:"Raki",ru:"Раки"},items:[
+{az:"Yeni Rakı shut",en:"Yeni Raki Shot",ru:"Йени Раки шот",p:6},{az:"Tekirdağ shut",en:"Tekirdag Shot",ru:"Текирдаг шот",p:6},{az:"Yeni Rakı 1 L",en:"Yeni Raki 1L",ru:"Йени Раки 1л",p:92},{az:"Yeni Rakı 0.7",en:"Yeni Raki 0.7L",ru:"Йени Раки 0.7л",p:75},{az:"Yeni Rakı 0.5",en:"Yeni Raki 0.5L",ru:"Йени Раки 0.5л",p:55},{az:"Tekirdağ 1 L",en:"Tekirdag 1L",ru:"Текирдаг 1л",p:95},{az:"Tekirdağ 0.7 L",en:"Tekirdag 0.7L",ru:"Текирдаг 0.7л",p:72},{az:"Bəylərbəyi 0.7",en:"Beylerbey 0.7L",ru:"Бейлербей 0.7л",p:75}
+]},
+{cat:{az:"Şərablar",en:"Wines",ru:"Вина"},items:[
+{az:"Hillside 0.7",en:"Hillside 0.7L",ru:"Хиллсайд 0.7л",p:35},{az:"Savalan 0.7",en:"Savalan 0.7L",ru:"Савалан 0.7л",p:25},{az:"Meysəri",en:"Meysari",ru:"Мейсари",p:33},{az:"Şərab sadə",en:"House Wine",ru:"Домашнее вино",p:15},{az:"Jacobs şərab",en:"Jacob's Wine",ru:"Вино Jacobs",p:50},{az:"Bottega şərab",en:"Bottega Wine",ru:"Вино Bottega",p:50},{az:"Chardonnay şərab",en:"Chardonnay",ru:"Шардоне",p:35}
+]},
+{cat:{az:"Şampan",en:"Champagne",ru:"Шампанское"},items:[
+{az:"Prosecco",en:"Prosecco",ru:"Просекко",p:55},{az:"Abrau",en:"Abrau",ru:"Абрау",p:25}
+]},
+{cat:{az:"Araqlar",en:"Vodka & Spirits",ru:"Водка и спиртные"},items:[
+{az:"Finlandia 50 ml",en:"Finlandia 50ml",ru:"Финляндия 50мл",p:4.5},{az:"Absolute 50 ml",en:"Absolut 50ml",ru:"Абсолют 50мл",p:5},{az:"Yerli araqlar 100ml",en:"Local Vodka 100ml",ru:"Местная водка 100мл",p:3},{az:"Araq yerli Ağ Banket 0.5",en:"Ag Banket 0.5L",ru:"Аг Банкет 0.5л",p:17},{az:"Araq yerli Ağ banket 0.7",en:"Ag Banket 0.7L",ru:"Аг Банкет 0.7л",p:20},{az:"Araq yerli Ağ banket L",en:"Ag Banket 1L",ru:"Аг Банкет 1л",p:22.5},{az:"Araq yerli Banket Noble 0.5",en:"Banket Noble 0.5L",ru:"Банкет Нобль 0.5л",p:19},{az:"Araq yerli Noble banket 0.7",en:"Banket Noble 0.7L",ru:"Банкет Нобль 0.7л",p:21},{az:"Araq yerli Noble banket L",en:"Banket Noble 1L",ru:"Банкет Нобль 1л",p:23.5},{az:"Starıy doktor 0.5",en:"Stary Doktor 0.5L",ru:"Старый доктор 0.5л",p:19},{az:"Starıy doktor 0.7",en:"Stary Doktor 0.7L",ru:"Старый доктор 0.7л",p:21},{az:"Starıy doktor 1L",en:"Stary Doktor 1L",ru:"Старый доктор 1л",p:25},{az:"Saphire 0.7",en:"Saphire 0.7L",ru:"Сапфир 0.7л",p:20},{az:"Finlandia 0.7",en:"Finlandia 0.7L",ru:"Финляндия 0.7л",p:62},{az:"Finlandia 1 L",en:"Finlandia 1L",ru:"Финляндия 1л",p:80},{az:"Absolute 0.7",en:"Absolut 0.7L",ru:"Абсолют 0.7л",p:57},{az:"Absolute 0.5",en:"Absolut 0.5L",ru:"Абсолют 0.5л",p:45},{az:"Absolute 1 L",en:"Absolut 1L",ru:"Абсолют 1л",p:72},{az:"Finlandia 0.5",en:"Finlandia 0.5L",ru:"Финляндия 0.5л",p:50},{az:"Russkiy Standart Platin 1 L",en:"Russian Standard Platin 1L",ru:"Русский Стандарт Платин 1л",p:75},{az:"Russkiy Standart Platin 0.7",en:"Russian Standard Platin 0.7L",ru:"Русский Стандарт Платин 0.7л",p:60},{az:"Russkiy Standart Platin 0.5",en:"Russian Standard Platin 0.5L",ru:"Русский Стандарт Платин 0.5л",p:50},{az:"Parlament 1L",en:"Parlament 1L",ru:"Парламент 1л",p:55},{az:"Parlament 0.7",en:"Parlament 0.7L",ru:"Парламент 0.7л",p:40},{az:"Parlament 0.5",en:"Parlament 0.5L",ru:"Парламент 0.5л",p:32},{az:"Zelyonnaya Marka Trad 1 L",en:"Zelyonaya Marka 1L",ru:"Зелёная Марка 1л",p:55},{az:"Zelyonnaya Marka Trad 0.7",en:"Zelyonaya Marka 0.7L",ru:"Зелёная Марка 0.7л",p:40},{az:"Zelyonnaya Marka Trad 0.5",en:"Zelyonaya Marka 0.5L",ru:"Зелёная Марка 0.5л",p:25},{az:"Çarskaya 1L",en:"Tsarskaya 1L",ru:"Царская 1л",p:55},{az:"Çarskaya 0.7",en:"Tsarskaya 0.7L",ru:"Царская 0.7л",p:47},{az:"Çarskaya 0.5",en:"Tsarskaya 0.5L",ru:"Царская 0.5л",p:36},{az:"Horizon 0.5",en:"Horizon 0.5L",ru:"Горизонт 0.5л",p:17},{az:"Horizon 0.7",en:"Horizon 0.7L",ru:"Горизонт 0.7л",p:20},{az:"Horizon L",en:"Horizon 1L",ru:"Горизонт 1л",p:21},{az:"Prokuror L",en:"Prokuror 1L",ru:"Прокурор 1л",p:20},{az:"Qarabağ horse 0.5",en:"Karabakh Horse 0.5L",ru:"Карабах Хорс 0.5л",p:12},{az:"Perfect 0.5",en:"Perfect 0.5L",ru:"Перфект 0.5л",p:17},{az:"Perfect 0.7",en:"Perfect 0.7L",ru:"Перфект 0.7л",p:19},{az:"Komandos 0.5",en:"Komandos 0.5L",ru:"Командос 0.5л",p:12},{az:"Komandos L",en:"Komandos 1L",ru:"Командос 1л",p:16},{az:"Nemiroff Psenicnaya 200 ml",en:"Nemiroff Wheat 200ml",ru:"Немирофф Пшеничная 200мл",p:15},{az:"Nemiroff Psenicnaya L",en:"Nemiroff Wheat 1L",ru:"Немирофф Пшеничная 1л",p:51},{az:"Nemiroff Delikat L",en:"Nemiroff Delikat 1L",ru:"Немирофф Деликат 1л",p:51},{az:"Nemiroff Psenicnaya 0.5",en:"Nemiroff Wheat 0.5L",ru:"Немирофф Пшеничная 0.5л",p:27},{az:"Nemiroff Delikat 0.7",en:"Nemiroff Delikat 0.7L",ru:"Немирофф Деликат 0.7л",p:38},{az:"Nemiroff Psenicnaya 0.7",en:"Nemiroff Wheat 0.7L",ru:"Немирофф Пшеничная 0.7л",p:38},{az:"Nemiroff Delikat 0.5",en:"Nemiroff Delikat 0.5L",ru:"Немирофф Деликат 0.5л",p:27},{az:"Men Vodka L",en:"Men Vodka 1L",ru:"Men Vodka 1л",p:25},{az:"Men Vodka 0.7",en:"Men Vodka 0.7L",ru:"Men Vodka 0.7л",p:21},{az:"Men Vodka 0.5",en:"Men Vodka 0.5L",ru:"Men Vodka 0.5л",p:19},{az:"Spez vodka L",en:"Spez Vodka 1L",ru:"Спез водка 1л",p:24},{az:"Spez vodka 0.7",en:"Spez Vodka 0.7L",ru:"Спез водка 0.7л",p:21},{az:"Spez vodka 0.5",en:"Spez Vodka 0.5L",ru:"Спез водка 0.5л",p:18},{az:"Platin organic L",en:"Platin Organic 1L",ru:"Платин Органик 1л",p:22},{az:"Platin organic 0.7",en:"Platin Organic 0.7L",ru:"Платин Органик 0.7л",p:20},{az:"Platin organic 0.5",en:"Platin Organic 0.5L",ru:"Платин Органик 0.5л",p:18},{az:"Organic lime yubiley L",en:"Organic Lime Jubilee 1L",ru:"Органик Лайм Юбилей 1л",p:25},{az:"Syabri çistaya 0.7",en:"Syabri Pure 0.7L",ru:"Сябры Чистая 0.7л",p:33},{az:"Syabri çistaya 0.5",en:"Syabri Pure 0.5L",ru:"Сябры Чистая 0.5л",p:28},{az:"Syabri Psenicnaya 0.5",en:"Syabri Wheat 0.5L",ru:"Сябры Пшеничная 0.5л",p:26},{az:"Syabri Psenicnaya 0.7",en:"Syabri Wheat 0.7L",ru:"Сябры Пшеничная 0.7л",p:32},{az:"Yaroslavskaya lipov 0.5",en:"Yaroslavskaya Linden 0.5L",ru:"Ярославская Липовая 0.5л",p:30},{az:"Yaroslavskaya lipov 0.7",en:"Yaroslavskaya Linden 0.7L",ru:"Ярославская Липовая 0.7л",p:36},{az:"Yaroslavskaya lipov L",en:"Yaroslavskaya Linden 1L",ru:"Ярославская Липовая 1л",p:44}
+]},
+{cat:{az:"Spritsiz içkilər",en:"Non-Alcoholic Beverages",ru:"Безалкогольные напитки"},items:[
+{az:"Limonad hazırlanma",en:"Homemade Lemonade",ru:"Домашний лимонад",p:6},{az:"Portağal fresh",en:"Orange Fresh",ru:"Апельсиновый фреш",p:7},{az:"Alma fresh",en:"Apple Fresh",ru:"Яблочный фреш",p:4},{az:"Limon fresh",en:"Lemon Fresh",ru:"Лимонный фреш",p:4},{az:"Badamli premium",en:"Badamli Premium",ru:"Бадамлы Премиум",p:4},{az:"Şalğam suyu 1Lt",en:"Turnip Juice 1L",ru:"Шалгам 1л",p:6},{az:"Ayran",en:"Ayran",ru:"Айран",p:1.5},{az:"Borjomi",en:"Borjomi",ru:"Боржоми",p:3},{az:"Badamlı qazlı/qazsız 500ml",en:"Badamli Sparkling/Still 500ml",ru:"Бадамлы газ/без газа 500мл",p:3},{az:"Alma suyu Swell 0.25",en:"Apple Juice Swell 0.25L",ru:"Яблочный сок Swell 0.25л",p:5},{az:"Alma suyu Swell 0.75",en:"Apple Juice Swell 0.75L",ru:"Яблочный сок Swell 0.75л",p:12},{az:"Qızıl quyu",en:"Gizil Guyu",ru:"Гызыл гую",p:3},{az:"Nataktari limonad",en:"Natakhtari Lemonade",ru:"Натахтари лимонад",p:4},{az:"Sandora",en:"Sandora Juice",ru:"Сандора",p:6},{az:"Naturalni",en:"Natural Juice",ru:"Натуральный",p:4},{az:"Zedazen limonad",en:"Zedazeni Lemonade",ru:"Зедазени лимонад",p:3},{az:"Cappy",en:"Cappy",ru:"Каппи",p:4},{az:"Sirab qazlı",en:"Sirab Sparkling",ru:"Сираб газированный",p:3},{az:"Sirab qazsız",en:"Sirab Still",ru:"Сираб без газа",p:3},{az:"Sirab premium",en:"Sirab Premium",ru:"Сираб Премиум",p:4},{az:"Cola Zero 330ml",en:"Cola Zero 330ml",ru:"Кола Зеро 330мл",p:3},{az:"Nar soku sıxılma 1 L",en:"Fresh Pomegranate Juice 1L",ru:"Гранатовый сок свежий 1л",p:10},{az:"Cola 330ml",en:"Coca-Cola 330ml",ru:"Кока-Кола 330мл",p:3},{az:"Cola 1 LT",en:"Coca-Cola 1L",ru:"Кока-Кола 1л",p:3},{az:"Fanta 1 LT",en:"Fanta 1L",ru:"Фанта 1л",p:3},{az:"Sprite 1 LT",en:"Sprite 1L",ru:"Спрайт 1л",p:3},{az:"Fanta 330ml",en:"Fanta 330ml",ru:"Фанта 330мл",p:3},{az:"Sprite 330ml",en:"Sprite 330ml",ru:"Спрайт 330мл",p:3},{az:"Redbull",en:"Red Bull",ru:"Ред Булл",p:6},{az:"İce(fuse)tea L",en:"Ice Tea 1L",ru:"Айс Ти 1л",p:4},{az:"Hell",en:"Hell Energy",ru:"Hell",p:3},{az:"İstisu 0.5",en:"Istisu 0.5L",ru:"Истису 0.5л",p:3},{az:"Sarıkız",en:"Sarikiz",ru:"Сарыкыз",p:2},{az:"İce(fuse)tea 330 ml",en:"Ice Tea 330ml",ru:"Айс Ти 330мл",p:3},{az:"Kompot",en:"Compote",ru:"Компот",p:4},{az:"Kazbegi limonad 0.5",en:"Kazbegi Lemonade 0.5L",ru:"Казбеги лимонад 0.5л",p:3}
+]},
+{cat:{az:"Çay desertləri",en:"Tea & Desserts",ru:"Чай и десерты"},items:[
+{az:"Mürəbbə qoz",en:"Walnut Jam",ru:"Варенье ореховое",p:5},{az:"Mürəbbə snickers",en:"Snickers Jam",ru:"Варенье сникерс",p:6},{az:"Mürəbbə gül",en:"Rose Jam",ru:"Варенье розовое",p:5},{az:"Mürəbbə ağ krım",en:"White Cherry Jam",ru:"Варенье белая черешня",p:5},{az:"Mürəbbə qarpız",en:"Watermelon Jam",ru:"Варенье арбузное",p:5},{az:"Mürəbbə moruq",en:"Raspberry Jam",ru:"Варенье малиновое",p:5},{az:"Mürəbbə ərik",en:"Apricot Jam",ru:"Варенье абрикосовое",p:5},{az:"Ləpə qarışıq",en:"Mixed Nuts",ru:"Орехи ассорти",p:15},{az:"Kofe sadə",en:"Plain Coffee",ru:"Кофе простой",p:1},{az:"Mürəbbə badam",en:"Almond Jam",ru:"Варенье миндальное",p:7},{az:"Mürəbbə ananas",en:"Pineapple Jam",ru:"Варенье ананасовое",p:5},{az:"Mürəbbə şaftalı",en:"Peach Jam",ru:"Варенье персиковое",p:5},{az:"Mürəbbə zoğal",en:"Dogwood Jam",ru:"Варенье кизиловое",p:5},{az:"Fındıq çərəz",en:"Hazelnut Snack",ru:"Фундук",p:5},{az:"Badam çərəz",en:"Almond Snack",ru:"Миндаль",p:5},{az:"Qoz çərəz",en:"Walnut Snack",ru:"Грецкий орех",p:4.5},{az:"Kişniş ağ",en:"White Coriander",ru:"Кориандр белый",p:4},{az:"Kişniş qara",en:"Black Coriander",ru:"Кориандр чёрный",p:4},{az:"Mürəbbə çiyələk",en:"Strawberry Jam",ru:"Варенье клубничное",p:5},{az:"Mürəbbə turş gilas",en:"Sour Cherry Jam",ru:"Варенье вишнёвое",p:5},{az:"Mürəbbə bountry",en:"Bounty Jam",ru:"Варенье баунти",p:6},{az:"Alpengold şokolad",en:"Alpengold Chocolate",ru:"Шоколад Альпенголд",p:4},{az:"Snickers",en:"Snickers",ru:"Сникерс",p:3},{az:"Sadə çay",en:"Plain Tea",ru:"Простой чай",p:3},{az:"Çay qarışıq",en:"Mixed Tea",ru:"Чай ассорти",p:4},{az:"Türk paxlavası 1 əd",en:"Turkish Baklava 1pc",ru:"Турецкая пахлава 1шт",p:1}
+]},
+{cat:{az:"Kokteyllər",en:"Cocktails",ru:"Коктейли"},items:[
+{az:"Moxito",en:"Mojito",ru:"Мохито",p:6}
+]},
+{cat:{az:"Meyvələr",en:"Fruits",ru:"Фрукты"},items:[
+{az:"Meyvə qarışıq kiçik",en:"Mixed Fruit Small",ru:"Фрукты ассорти малое",p:15},{az:"Meyvə qarışıq böyük",en:"Mixed Fruit Large",ru:"Фрукты ассорти большое",p:25},{az:"Mandalin",en:"Mandarin",ru:"Мандарин",p:2},{az:"Nar dənələri",en:"Pomegranate Seeds",ru:"Зёрна граната",p:3},{az:"Portağal",en:"Orange",ru:"Апельсин",p:3},{az:"Ananas",en:"Pineapple",ru:"Ананас",p:13},{az:"Feyxoa",en:"Feijoa",ru:"Фейхоа",p:2},{az:"Alma",en:"Apple",ru:"Яблоко",p:2},{az:"Banan",en:"Banana",ru:"Банан",p:3},{az:"Kivi",en:"Kiwi",ru:"Киви",p:3},{az:"Qreyfruit",en:"Grapefruit",ru:"Грейпфрут",p:6},{az:"Ananas yarım",en:"Half Pineapple",ru:"Полананаса",p:7},{az:"Üzüm",en:"Grapes",ru:"Виноград",p:2}
+]},
+{cat:{az:"SET-lər (Pivə)",en:"Beer SETs",ru:"Пивные сеты"},items:[
+{az:"SET Garden-1",en:"SET Garden-1",ru:"СЕТ Garden-1",p:57},{az:"SET Garden-2",en:"SET Garden-2",ru:"СЕТ Garden-2",p:60},{az:"SET Garden-3",en:"SET Garden-3",ru:"СЕТ Garden-3",p:54},{az:"SET Garden-4",en:"SET Garden-4",ru:"СЕТ Garden-4",p:29},{az:"SET Garden-5",en:"SET Garden-5",ru:"СЕТ Garden-5",p:41},{az:"SET Garden-6",en:"SET Garden-6",ru:"СЕТ Garden-6",p:36},{az:"SET Garden-7",en:"SET Garden-7",ru:"СЕТ Garden-7",p:93},{az:"SET Garden-8",en:"SET Garden-8",ru:"СЕТ Garden-8",p:38},{az:"SET Garden-9",en:"SET Garden-9",ru:"СЕТ Garden-9",p:43},{az:"SET Garden-10",en:"SET Garden-10",ru:"СЕТ Garden-10",p:85},{az:"Sosiska SET",en:"Sausage SET",ru:"Сосисочный СЕТ",p:15}
+]},
+{cat:{az:"SET-lər (Russkiy)",en:"Russian SETs",ru:"Русские сеты"},items:[
+{az:"Russkiy SET 1",en:"Russian SET 1",ru:"Русский СЕТ 1",p:51},{az:"Russkiy SET 2",en:"Russian SET 2",ru:"Русский СЕТ 2",p:66},{az:"Russkiy SET 3",en:"Russian SET 3",ru:"Русский СЕТ 3",p:71},{az:"Russkiy SET 4 (içkisiz)",en:"Russian SET 4 (no drinks)",ru:"Русский СЕТ 4 (без напитков)",p:37},{az:"Russkiy SET 5 (içkisiz)",en:"Russian SET 5 (no drinks)",ru:"Русский СЕТ 5 (без напитков)",p:50},{az:"Russkiy SET 6 (içkisiz)",en:"Russian SET 6 (no drinks)",ru:"Русский СЕТ 6 (без напитков)",p:55},{az:"Russkiy SET 7",en:"Russian SET 7",ru:"Русский СЕТ 7",p:53},{az:"Russkiy SET 8",en:"Russian SET 8",ru:"Русский СЕТ 8",p:68},{az:"Russkiy SET 9",en:"Russian SET 9",ru:"Русский СЕТ 9",p:73}
+]},
+{cat:{az:"SET-lər (Viski/Teqila)",en:"Whisky/Tequila SETs",ru:"Сеты Виски/Текила"},items:[
+{az:"Viski SET-1",en:"Whisky SET-1",ru:"Виски СЕТ-1",p:135},{az:"Viski SET-2",en:"Whisky SET-2",ru:"Виски СЕТ-2",p:105},{az:"Viski SET-3",en:"Whisky SET-3",ru:"Виски СЕТ-3",p:160},{az:"Viski SET-4",en:"Whisky SET-4",ru:"Виски СЕТ-4",p:150},{az:"Viski SET-5",en:"Whisky SET-5",ru:"Виски СЕТ-5",p:120},{az:"Viski SET-6",en:"Whisky SET-6",ru:"Виски СЕТ-6",p:170},{az:"Viski SET-7",en:"Whisky SET-7",ru:"Виски СЕТ-7",p:144},{az:"Viski SET-8",en:"Whisky SET-8",ru:"Виски СЕТ-8",p:167},{az:"Viski SET-9",en:"Whisky SET-9",ru:"Виски СЕТ-9",p:121},{az:"Viski SET-10",en:"Whisky SET-10",ru:"Виски СЕТ-10",p:105},{az:"Viski SET-11",en:"Whisky SET-11",ru:"Виски СЕТ-11",p:89},{az:"Viski SET-12",en:"Whisky SET-12",ru:"Виски СЕТ-12",p:127},{az:"Tequila SET-1",en:"Tequila SET-1",ru:"Текила СЕТ-1",p:107},{az:"Tequila SET-2",en:"Tequila SET-2",ru:"Текила СЕТ-2",p:105}
+]},
+{cat:{az:"Tütün məmulatları",en:"Tobacco",ru:"Табачные изделия"},items:[
+{az:"Siqaret Winston",en:"Winston Cigarettes",ru:"Сигареты Winston",p:7},{az:"Siqaret Sobranie",en:"Sobranie Cigarettes",ru:"Сигареты Sobranie",p:7},{az:"Siqaret Kent",en:"Kent Cigarettes",ru:"Сигареты Kent",p:7}
+]},
+{cat:{az:"Digər",en:"Other",ru:"Прочее"},items:[
+{az:"Pivə bokalı",en:"Beer Glass",ru:"Пивной бокал",p:4},{az:"Rumka",en:"Shot Glass",ru:"Рюмка",p:2},{az:"Sok bakalı",en:"Juice Glass",ru:"Стакан для сока",p:3},{az:"Giriş",en:"Entrance",ru:"Вход",p:10},{az:"Yandıran",en:"Lighter",ru:"Зажигалка",p:1},{az:"Zər",en:"Dice",ru:"Зар",p:10},{az:"Kömür əlavə",en:"Extra Coal",ru:"Доп. уголь",p:1},{az:"İçki əlavə",en:"Extra Drink",ru:"Доп. напиток",p:5}
+]}
+];
 
 let currentLang = 'en';
 
-// ===== LANGUAGE SWITCH =====
 function setLang(lang) {
     currentLang = lang;
     document.querySelectorAll('.lang-btn').forEach(btn => {
@@ -1169,54 +1154,73 @@ function setLang(lang) {
     });
     document.querySelectorAll('[data-' + lang + ']').forEach(el => {
         const val = el.getAttribute('data-' + lang);
-        if (el.tagName === 'A' || el.tagName === 'P' || el.tagName === 'SPAN' || el.tagName === 'DIV' || el.tagName === 'H2' || el.tagName === 'H3') {
-            el.innerHTML = val;
-        }
+        if (el.tagName === 'INPUT' || el.tagName === 'BUTTON') return;
+        el.innerHTML = val;
     });
     renderMenu();
 }
 
-// ===== RENDER MENU =====
 function renderMenu() {
-    const data = menuData[currentLang];
-    const categories = Object.keys(data);
-    const catContainer = document.getElementById('menuCategories');
-    const gridContainer = document.getElementById('menuGrid');
+    const grid = document.getElementById('menuGrid');
+    const cats = document.getElementById('menuCategories');
+    cats.style.display = 'none';
 
-    const allLabel = currentLang === 'en' ? 'All' : 'Все';
-    catContainer.innerHTML = `<button class="cat-btn active" onclick="filterMenu('all')">${allLabel}</button>` +
-        categories.map(cat => `<button class="cat-btn" onclick="filterMenu('${cat}')">${cat}</button>`).join('');
+    let html = '';
+    menuData.forEach((section, si) => {
+        const catName = section.cat[currentLang];
+        const items = section.items;
+        const previewItems = items.slice(0, PREVIEW_COUNT);
+        const extraItems = items.slice(PREVIEW_COUNT);
+        const expandLabel = {az:'Hamısını gör',en:'Show all',ru:'Показать все'}[currentLang];
+        const collapseLabel = {az:'Gizlət',en:'Collapse',ru:'Свернуть'}[currentLang];
 
-    let items = [];
-    categories.forEach(cat => {
-        data[cat].forEach(item => {
-            items.push({ ...item, category: cat });
-        });
+        html += `<div class="menu-category-section">`;
+        html += `<div class="menu-category-header" onclick="toggleCategory(${si})">
+            <div><h3>${catName}</h3><span class="item-count">${items.length} ${
+                {az:'məhsul',en:'items',ru:'позиций'}[currentLang]
+            }</span></div>
+            <span class="expand-icon"><i class="fas fa-chevron-down"></i></span>
+        </div>`;
+        html += `<div class="menu-category-items show" id="cat-${si}">`;
+        // Preview items always visible
+        html += previewItems.map(it => renderItem(it)).join('');
+        // Extra items hidden initially
+        if (extraItems.length > 0) {
+            html += `<div class="menu-extra-items" id="extra-${si}" style="display:none;">`;
+            html += extraItems.map(it => renderItem(it)).join('');
+            html += `</div>`;
+            html += `<button class="menu-expand-btn" id="expand-btn-${si}" onclick="toggleExpand(${si})">${expandLabel} (+${extraItems.length})</button>`;
+        }
+        html += `</div></div>`;
     });
-
-    gridContainer.innerHTML = items.map(item => `
-        <div class="menu-item" data-category="${item.category}">
-            <div>
-                <div class="menu-item-name">${item.name}</div>
-                <div class="menu-item-desc">${item.desc}</div>
-            </div>
-            <div class="menu-item-price">${item.price} &#8380;</div>
-        </div>
-    `).join('');
+    grid.innerHTML = html;
 }
 
-function filterMenu(category) {
-    document.querySelectorAll('.cat-btn').forEach(btn => {
-        btn.classList.toggle('active', btn.textContent === category ||
-            (category === 'all' && (btn.textContent === 'All' || btn.textContent === 'Все')));
-    });
-    document.querySelectorAll('.menu-item').forEach(item => {
-        if (category === 'all') {
-            item.style.display = 'flex';
-        } else {
-            item.style.display = item.dataset.category === category ? 'flex' : 'none';
-        }
-    });
+function renderItem(it) {
+    const name = it[currentLang];
+    return `<div class="menu-item"><div><div class="menu-item-name">${name}</div></div><div class="menu-item-price">${it.p} &#8380;</div></div>`;
+}
+
+function toggleCategory(idx) {
+    const el = document.getElementById('cat-' + idx);
+    const header = el.previousElementSibling;
+    el.classList.toggle('show');
+    header.classList.toggle('expanded');
+}
+
+function toggleExpand(idx) {
+    const extra = document.getElementById('extra-' + idx);
+    const btn = document.getElementById('expand-btn-' + idx);
+    const expandLabel = {az:'Hamısını gör',en:'Show all',ru:'Показать все'}[currentLang];
+    const collapseLabel = {az:'Gizlət',en:'Collapse',ru:'Свернуть'}[currentLang];
+    if (extra.style.display === 'none') {
+        extra.style.display = 'contents';
+        btn.textContent = collapseLabel;
+    } else {
+        extra.style.display = 'none';
+        const count = extra.querySelectorAll('.menu-item').length;
+        btn.textContent = expandLabel + ' (+' + count + ')';
+    }
 }
 
 // ===== PRELOADER =====
