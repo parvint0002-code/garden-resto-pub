@@ -622,6 +622,25 @@
         }
         .menu-expand-btn:hover { border-color: var(--gold); background: rgba(198, 166, 100, 0.1); }
 
+        .menu-item-set { cursor: pointer; flex-wrap: wrap; position: relative; }
+        .menu-item-set .menu-item-name { display: flex; align-items: center; gap: 6px; }
+        .set-arrow { font-size: 0.55rem; color: var(--gold); transition: transform 0.3s ease; }
+        .set-arrow.open { transform: rotate(180deg); }
+        .set-desc {
+            width: 100%; flex-basis: 100%;
+            max-height: 0; overflow: hidden; opacity: 0;
+            transition: max-height 0.35s ease, opacity 0.3s ease, padding 0.3s ease;
+            font-size: 0.78rem; color: var(--gold-light); line-height: 1.6;
+            padding: 0 0 0 2px;
+            border-left: 2px solid var(--gold);
+            margin-left: 2px;
+        }
+        .set-desc.open {
+            max-height: 300px; opacity: 1;
+            padding: 8px 0 4px 10px;
+            margin-top: 6px;
+        }
+
         /* ===== GALLERY ===== */
         #gallery { background: var(--black-light); }
         .gallery-grid {
@@ -1129,13 +1148,44 @@ const menuData = [
 {az:"Meyvə qarışıq kiçik",en:"Mixed Fruit Small",ru:"Фрукты ассорти малое",p:15},{az:"Meyvə qarışıq böyük",en:"Mixed Fruit Large",ru:"Фрукты ассорти большое",p:25},{az:"Mandalin",en:"Mandarin",ru:"Мандарин",p:2},{az:"Nar dənələri",en:"Pomegranate Seeds",ru:"Зёрна граната",p:3},{az:"Portağal",en:"Orange",ru:"Апельсин",p:3},{az:"Ananas",en:"Pineapple",ru:"Ананас",p:13},{az:"Feyxoa",en:"Feijoa",ru:"Фейхоа",p:2},{az:"Alma",en:"Apple",ru:"Яблоко",p:2},{az:"Banan",en:"Banana",ru:"Банан",p:3},{az:"Kivi",en:"Kiwi",ru:"Киви",p:3},{az:"Qreyfruit",en:"Grapefruit",ru:"Грейпфрут",p:6},{az:"Ananas yarım",en:"Half Pineapple",ru:"Полананаса",p:7},{az:"Üzüm",en:"Grapes",ru:"Виноград",p:2}
 ]},
 {cat:{az:"SET-lər (Pivə)",en:"Beer SETs",ru:"Пивные сеты"},items:[
-{az:"SET Garden-1",en:"SET Garden-1",ru:"СЕТ Garden-1",p:57},{az:"SET Garden-2",en:"SET Garden-2",ru:"СЕТ Garden-2",p:60},{az:"SET Garden-3",en:"SET Garden-3",ru:"СЕТ Garden-3",p:54},{az:"SET Garden-4",en:"SET Garden-4",ru:"СЕТ Garden-4",p:29},{az:"SET Garden-5",en:"SET Garden-5",ru:"СЕТ Garden-5",p:41},{az:"SET Garden-6",en:"SET Garden-6",ru:"СЕТ Garden-6",p:36},{az:"SET Garden-7",en:"SET Garden-7",ru:"СЕТ Garden-7",p:93},{az:"SET Garden-8",en:"SET Garden-8",ru:"СЕТ Garden-8",p:38},{az:"SET Garden-9",en:"SET Garden-9",ru:"СЕТ Garden-9",p:43},{az:"SET Garden-10",en:"SET Garden-10",ru:"СЕТ Garden-10",p:85},{az:"Sosiska SET",en:"Sausage SET",ru:"Сосисочный СЕТ",p:15}
+{az:"SET Garden-1",en:"SET Garden-1",ru:"СЕТ Garden-1",p:57,desc:{az:"Xırdalan pivə 6 ədəd, pendir sadə 2 pors, iveriya 1 pors, sardelka 1 pors, krivetka çay, tum 2 pors, boğaz 2 pors, noxud 2 pors, hisə verilmiş pötənək 1 pors",en:"Khirdalan beer ×6, plain cheese ×2, iveriya ×1, sardelka ×1, shrimp tea, seeds ×2, throat ×2, chickpeas ×2, smoked potene ×1",ru:"Хырдалан пиво ×6, сыр ×2, иверия ×1, сарделька ×1, креветка чай, семечки ×2, богаз ×2, нут ×2, копчёная пётэнэк ×1"}},
+{az:"SET Garden-2",en:"SET Garden-2",ru:"СЕТ Garden-2",p:60,desc:{az:"Xırdalan NF pivə 6, pendir sadə 2 pors, iveriya 1 pors, sardelka 1 pors, krivetka çay, tum 2 pors, boğaz 2 pors, noxud 2 pors, hisə verilmiş pötənək 1 pors",en:"Khirdalan NF beer ×6, plain cheese ×2, iveriya ×1, sardelka ×1, shrimp tea, seeds ×2, throat ×2, chickpeas ×2, smoked potene ×1",ru:"Хырдалан NF пиво ×6, сыр ×2, иверия ×1, сарделька ×1, креветка чай, семечки ×2, богаз ×2, нут ×2, копчёная пётэнэк ×1"}},
+{az:"SET Garden-3",en:"SET Garden-3",ru:"СЕТ Garden-3",p:54,desc:{az:"NZS 10, göbələk çipsi 1, düşbərə qızartma 1, pendir saçaq 1, pendir saçaq qızartma 1, tum 1, suxari 1, araxis 1, pətənə 1, noxud 1, krivetka çay 1",en:"NZS ×10, mushroom chips ×1, fried dushbara ×1, string cheese ×1, fried string cheese ×1, seeds ×1, croutons ×1, peanuts ×1, potene ×1, chickpeas ×1, shrimp tea ×1",ru:"NZS ×10, грибные чипсы ×1, жареные дюшбере ×1, сыр-косичка ×1, жареная косичка ×1, семечки ×1, сухари ×1, арахис ×1, пётэнэк ×1, нут ×1, креветка чай ×1"}},
+{az:"SET Garden-4",en:"SET Garden-4",ru:"СЕТ Garden-4",p:29,desc:{az:"Xırdalan pivə 4, pendir sadə 1 pors, noxud 1 pors, tum 1 ədəd, qrenki 1 ədəd, boğaz 1 pors, femi, pendir çubuqları",en:"Khirdalan beer ×4, plain cheese ×1, chickpeas ×1, seeds ×1, croutons ×1, throat ×1, femi, cheese sticks",ru:"Хырдалан пиво ×4, сыр ×1, нут ×1, семечки ×1, гренки ×1, богаз ×1, феми, сырные палочки"}},
+{az:"SET Garden-5",en:"SET Garden-5",ru:"СЕТ Garden-5",p:41,desc:{az:"NZS 8, Lays çipsi 1, noxud sadə 1, noxud qızartma 1, pendir saçaq 1, tum 1, nuggets fri 1, boğaz turşulu 1",en:"NZS ×8, Lays chips ×1, plain chickpeas ×1, fried chickpeas ×1, string cheese ×1, seeds ×1, nuggets & fries ×1, pickled throat ×1",ru:"NZS ×8, чипсы Лейс ×1, нут ×1, жареный нут ×1, сыр-косичка ×1, семечки ×1, наггетсы фри ×1, маринованный богаз ×1"}},
+{az:"SET Garden-6",en:"SET Garden-6",ru:"СЕТ Garden-6",p:36,desc:{az:"Xırdalan pivə 6 ədəd, boğaz 1, pendir 1, noxud 1, krivetka çay 1, araxis 1, ət basdırma 1, düşbərə 1, tum 1",en:"Khirdalan beer ×6, throat ×1, cheese ×1, chickpeas ×1, shrimp tea ×1, peanuts ×1, cured meat ×1, dushbara ×1, seeds ×1",ru:"Хырдалан пиво ×6, богаз ×1, сыр ×1, нут ×1, креветка чай ×1, арахис ×1, бастурма ×1, дюшбере ×1, семечки ×1"}},
+{az:"SET Garden-7",en:"SET Garden-7",ru:"СЕТ Garden-7",p:93,desc:{az:"NZS 18, krivetka dəniz 1, manqalüstü qızartma 1, nuggets fri 1, pendir çubuqları 1, tum 1, iveriya qızartma 1, pendir saçaq 1, pendir saçaq qızartma 1, düşbərə qızartma 1, suxari 1, noxud 1, pətənə qızartma 1, boğaz turşulu 1, femi 1, toyuq popcorn 1, kartof fri 1",en:"NZS ×18, sea shrimp ×1, grilled sausage ×1, nuggets & fries ×1, cheese sticks ×1, seeds ×1, fried iveriya ×1, string cheese ×1, fried string cheese ×1, fried dushbara ×1, croutons ×1, chickpeas ×1, fried potene ×1, pickled throat ×1, femi ×1, chicken popcorn ×1, french fries ×1",ru:"NZS ×18, морская креветка ×1, жареные на мангале ×1, наггетсы фри ×1, сырные палочки ×1, семечки ×1, жареная иверия ×1, сыр-косичка ×1, жареная косичка ×1, жареные дюшбере ×1, сухари ×1, нут ×1, жареная пётэнэк ×1, маринованный богаз ×1, феми ×1, куриный попкорн ×1, картофель фри ×1"}},
+{az:"SET Garden-8",en:"SET Garden-8",ru:"СЕТ Garden-8",p:38,desc:{az:"Xırdalan pivə 4 ədəd, boğaz 1, pendir 1, noxud 1, krivetka çay 1, araxis 1, ət basdırma 1, düşbərə 1, tum 1",en:"Khirdalan beer ×4, throat ×1, cheese ×1, chickpeas ×1, shrimp tea ×1, peanuts ×1, cured meat ×1, dushbara ×1, seeds ×1",ru:"Хырдалан пиво ×4, богаз ×1, сыр ×1, нут ×1, креветка чай ×1, арахис ×1, бастурма ×1, дюшбере ×1, семечки ×1"}},
+{az:"SET Garden-9",en:"SET Garden-9",ru:"СЕТ Garden-9",p:43,desc:{az:"Xırdalan 8, Lays çipsi 1, noxud sadə 1, noxud qızartma 1, pendir saçaq 1, tum 1, nuggets fri 1, boğaz turşulu 1",en:"Khirdalan ×8, Lays chips ×1, plain chickpeas ×1, fried chickpeas ×1, string cheese ×1, seeds ×1, nuggets & fries ×1, pickled throat ×1",ru:"Хырдалан ×8, чипсы Лейс ×1, нут ×1, жареный нут ×1, сыр-косичка ×1, семечки ×1, наггетсы фри ×1, маринованный богаз ×1"}},
+{az:"SET Garden-10",en:"SET Garden-10",ru:"СЕТ Garden-10",p:85,desc:{az:"NZS 14, qəlyan şərbətli saxsı 1, Garden pendir topları 1, haça 1, noxud qızartma 1, qrenki pendirli 1, Garden basdırma 1, soğan halqaları 1, bildirçin 1, femi 1, pendir qızartma 1, antep fıstığı 1, tum 1, göbələk çipsi 1, düşbərə qızartma 1",en:"NZS ×14, hookah (sherbet, clay) ×1, Garden cheese balls ×1, hacha ×1, fried chickpeas ×1, cheese croutons ×1, Garden cured meat ×1, onion rings ×1, quail ×1, femi ×1, fried cheese ×1, Antep pistachio ×1, seeds ×1, mushroom chips ×1, fried dushbara ×1",ru:"NZS ×14, кальян шербетный в глине ×1, сырные шарики Garden ×1, хача ×1, жареный нут ×1, гренки с сыром ×1, бастурма Garden ×1, луковые кольца ×1, перепёлка ×1, феми ×1, жареный сыр ×1, фисташки Антеп ×1, семечки ×1, грибные чипсы ×1, жареные дюшбере ×1"}},
+{az:"Sosiska SET",en:"Sausage SET",ru:"Сосисочный СЕТ",p:15,desc:{az:"İveriya, sardelka, südlü sosiska, kartof soyutma",en:"Iveriya, sardelka, milk sausage, potato soyutma",ru:"Иверия, сарделька, молочная сосиска, картофель сoютма"}}
 ]},
 {cat:{az:"SET-lər (Russkiy)",en:"Russian SETs",ru:"Русские сеты"},items:[
-{az:"Russkiy SET 1",en:"Russian SET 1",ru:"Русский СЕТ 1",p:51},{az:"Russkiy SET 2",en:"Russian SET 2",ru:"Русский СЕТ 2",p:66},{az:"Russkiy SET 3",en:"Russian SET 3",ru:"Русский СЕТ 3",p:71},{az:"Russkiy SET 4 (içkisiz)",en:"Russian SET 4 (no drinks)",ru:"Русский СЕТ 4 (без напитков)",p:37},{az:"Russkiy SET 5 (içkisiz)",en:"Russian SET 5 (no drinks)",ru:"Русский СЕТ 5 (без напитков)",p:50},{az:"Russkiy SET 6 (içkisiz)",en:"Russian SET 6 (no drinks)",ru:"Русский СЕТ 6 (без напитков)",p:55},{az:"Russkiy SET 7",en:"Russian SET 7",ru:"Русский СЕТ 7",p:53},{az:"Russkiy SET 8",en:"Russian SET 8",ru:"Русский СЕТ 8",p:68},{az:"Russkiy SET 9",en:"Russian SET 9",ru:"Русский СЕТ 9",p:73}
+{az:"Russkiy SET 1",en:"Russian SET 1",ru:"Русский СЕТ 1",p:51,desc:{az:"Kartof soyutma, yumurta 8 ədəd, pomidor, xiyar dilimləri, markof dilimləri, sardelka, iveriya 6 ədəd, manqalüstü, saçaq, xiyar turşu, araq yerli",en:"Potato soyutma, eggs ×8, tomato, cucumber slices, carrot slices, sardelka, iveriya ×6, grilled sausage, string cheese, pickled cucumber, local vodka",ru:"Картофель сoютма, яйца ×8, помидор, огурцы, морковь, сарделька, иверия ×6, мангальная, косичка, солёный огурец, водка местная"}},
+{az:"Russkiy SET 2",en:"Russian SET 2",ru:"Русский СЕТ 2",p:66,desc:{az:"Araq yerli 1 L, soyutma kartof, yumurta 8 ədəd, soyutma kənd çolpa, iveriya qaynama 6 ədəd, sardelka qaynama, xiyar dilimləri, markof dilimləri, turşu assorti, alça turşusu, pendir assorti",en:"Local vodka 1L, potato soyutma, eggs ×8, village chicken soyutma, boiled iveriya ×6, boiled sardelka, cucumber slices, carrot slices, pickles platter, cherry plum pickle, cheese platter",ru:"Водка местная 1Л, картофель сoютма, яйца ×8, деревенская курица сoютма, варёная иверия ×6, варёная сарделька, огурцы, морковь, ассорти солений, алыча, сырная тарелка"}},
+{az:"Russkiy SET 3",en:"Russian SET 3",ru:"Русский СЕТ 3",p:71,desc:{az:"Araq yerli 1 L, soyutma kartof, soyutma yumurta 8 ədəd, skrumbiya balıq, soyutma kənd çolpa, iveriya qaynama 6 ədəd, sardelka qaynama, xiyar dilimləri, markof dilimləri, turşu assorti, alça turşusu, pendir assorti",en:"Local vodka 1L, potato soyutma, eggs ×8, mackerel fish, village chicken soyutma, boiled iveriya ×6, boiled sardelka, cucumber slices, carrot slices, pickles platter, cherry plum pickle, cheese platter",ru:"Водка местная 1Л, картофель сoютма, яйца ×8, скумбрия, деревенская курица сoютма, варёная иверия ×6, варёная сарделька, огурцы, морковь, ассорти солений, алыча, сырная тарелка"}},
+{az:"Russkiy SET 4 (içkisiz)",en:"Russian SET 4 (no drinks)",ru:"Русский СЕТ 4 (без напитков)",p:37,desc:{az:"Kartof soyutma, soyutma yumurta 8 ədəd, pomidor, xiyar dilimləri, markof dilimləri, sardelka, iveriya 6 ədəd, manqalüstü, saçaq, xiyar turşu",en:"Potato soyutma, eggs ×8, tomato, cucumber slices, carrot slices, sardelka, iveriya ×6, grilled sausage, string cheese, pickled cucumber",ru:"Картофель сoютма, яйца ×8, помидор, огурцы, морковь, сарделька, иверия ×6, мангальная, косичка, солёный огурец"}},
+{az:"Russkiy SET 5 (içkisiz)",en:"Russian SET 5 (no drinks)",ru:"Русский СЕТ 5 (без напитков)",p:50,desc:{az:"Soyutma yumurta 8 ədəd, soyutma kartof, soyutma kənd çolpa, iveriya qaynama 6 ədəd, sardelka qaynama, xiyar dilimləri, markof dilimləri, turşu assorti, alça turşusu, pendir assorti",en:"Eggs ×8, potato soyutma, village chicken soyutma, boiled iveriya ×6, boiled sardelka, cucumber slices, carrot slices, pickles platter, cherry plum pickle, cheese platter",ru:"Яйца ×8, картофель сoютма, деревенская курица сoютма, варёная иверия ×6, варёная сарделька, огурцы, морковь, ассорти солений, алыча, сырная тарелка"}},
+{az:"Russkiy SET 6 (içkisiz)",en:"Russian SET 6 (no drinks)",ru:"Русский СЕТ 6 (без напитков)",p:55,desc:{az:"Skrumbiya balıq, soyutma yumurta 8 ədəd, soyutma kartof, soyutma kənd çolpa, iveriya qaynama 6 ədəd, sardelka qaynama, xiyar dilimləri, markof dilimləri, turşu assorti, alça turşusu, pendir assorti",en:"Mackerel fish, eggs ×8, potato soyutma, village chicken soyutma, boiled iveriya ×6, boiled sardelka, cucumber slices, carrot slices, pickles platter, cherry plum pickle, cheese platter",ru:"Скумбрия, яйца ×8, картофель сoютма, деревенская курица сoютма, варёная иверия ×6, варёная сарделька, огурцы, морковь, ассорти солений, алыча, сырная тарелка"}},
+{az:"Russkiy SET 7",en:"Russian SET 7",ru:"Русский СЕТ 7",p:53,desc:{az:"Kartof soyutma, yumurta 8 ədəd, pomidor, xiyar dilimləri, markof dilimləri, sardelka, iveriya 6 ədəd, manqalüstü, saçaq, xiyar turşu, araq yerli NOBLE",en:"Potato soyutma, eggs ×8, tomato, cucumber slices, carrot slices, sardelka, iveriya ×6, grilled sausage, string cheese, pickled cucumber, NOBLE local vodka",ru:"Картофель сoютма, яйца ×8, помидор, огурцы, морковь, сарделька, иверия ×6, мангальная, косичка, солёный огурец, водка NOBLE"}},
+{az:"Russkiy SET 8",en:"Russian SET 8",ru:"Русский СЕТ 8",p:68,desc:{az:"Araq yerli NOBLE, soyutma kartof, yumurta 8 ədəd, soyutma kənd çolpa, iveriya qaynama 6 ədəd, sardelka qaynama, xiyar dilimləri, markof dilimləri, turşu assorti, alça turşusu, pendir assorti",en:"NOBLE local vodka, potato soyutma, eggs ×8, village chicken soyutma, boiled iveriya ×6, boiled sardelka, cucumber slices, carrot slices, pickles platter, cherry plum pickle, cheese platter",ru:"Водка NOBLE, картофель сoютма, яйца ×8, деревенская курица сoютма, варёная иверия ×6, варёная сарделька, огурцы, морковь, ассорти солений, алыча, сырная тарелка"}},
+{az:"Russkiy SET 9",en:"Russian SET 9",ru:"Русский СЕТ 9",p:73,desc:{az:"Araq yerli Noble 1 L, soyutma kartof, soyutma yumurta 8 ədəd, skrumbiya balıq, soyutma kənd çolpa, iveriya qaynama 6 ədəd, sardelka qaynama, xiyar dilimləri, markof dilimləri, turşu assorti, alça turşusu, pendir assorti",en:"Noble local vodka 1L, potato soyutma, eggs ×8, mackerel fish, village chicken soyutma, boiled iveriya ×6, boiled sardelka, cucumber slices, carrot slices, pickles platter, cherry plum pickle, cheese platter",ru:"Водка Noble 1Л, картофель сoютма, яйца ×8, скумбрия, деревенская курица сoютма, варёная иверия ×6, варёная сарделька, огурцы, морковь, ассорти солений, алыча, сырная тарелка"}}
 ]},
 {cat:{az:"SET-lər (Viski/Teqila)",en:"Whisky/Tequila SETs",ru:"Сеты Виски/Текила"},items:[
-{az:"Viski SET-1",en:"Whisky SET-1",ru:"Виски СЕТ-1",p:135},{az:"Viski SET-2",en:"Whisky SET-2",ru:"Виски СЕТ-2",p:105},{az:"Viski SET-3",en:"Whisky SET-3",ru:"Виски СЕТ-3",p:160},{az:"Viski SET-4",en:"Whisky SET-4",ru:"Виски СЕТ-4",p:150},{az:"Viski SET-5",en:"Whisky SET-5",ru:"Виски СЕТ-5",p:120},{az:"Viski SET-6",en:"Whisky SET-6",ru:"Виски СЕТ-6",p:170},{az:"Viski SET-7",en:"Whisky SET-7",ru:"Виски СЕТ-7",p:144},{az:"Viski SET-8",en:"Whisky SET-8",ru:"Виски СЕТ-8",p:167},{az:"Viski SET-9",en:"Whisky SET-9",ru:"Виски СЕТ-9",p:121},{az:"Viski SET-10",en:"Whisky SET-10",ru:"Виски СЕТ-10",p:105},{az:"Viski SET-11",en:"Whisky SET-11",ru:"Виски СЕТ-11",p:89},{az:"Viski SET-12",en:"Whisky SET-12",ru:"Виски СЕТ-12",p:127},{az:"Tequila SET-1",en:"Tequila SET-1",ru:"Текила СЕТ-1",p:107},{az:"Tequila SET-2",en:"Tequila SET-2",ru:"Текила СЕТ-2",p:105}
+{az:"Viski SET-1",en:"Whisky SET-1",ru:"Виски СЕТ-1",p:135,desc:{az:"Jameson 1L, Redbull 6 ədəd, mövsümi meyvə",en:"Jameson 1L, Redbull ×6, seasonal fruits",ru:"Jameson 1Л, Redbull ×6, сезонные фрукты"}},
+{az:"Viski SET-2",en:"Whisky SET-2",ru:"Виски СЕТ-2",p:105,desc:{az:"Jameson 1L, meyvə şirəsi 1L, mövsümi meyvə",en:"Jameson 1L, fruit juice 1L, seasonal fruits",ru:"Jameson 1Л, фруктовый сок 1Л, сезонные фрукты"}},
+{az:"Viski SET-3",en:"Whisky SET-3",ru:"Виски СЕТ-3",p:160,desc:{az:"Chivas 12 — 1L, Redbull 6 ədəd, mövsümi meyvə",en:"Chivas 12 — 1L, Redbull ×6, seasonal fruits",ru:"Chivas 12 — 1Л, Redbull ×6, сезонные фрукты"}},
+{az:"Viski SET-4",en:"Whisky SET-4",ru:"Виски СЕТ-4",p:150,desc:{az:"Jameson 1L, Redbull 6 ədəd, mövsümi meyvə, qəlyan şərbətli",en:"Jameson 1L, Redbull ×6, seasonal fruits, sherbet hookah",ru:"Jameson 1Л, Redbull ×6, сезонные фрукты, шербетный кальян"}},
+{az:"Viski SET-5",en:"Whisky SET-5",ru:"Виски СЕТ-5",p:120,desc:{az:"Jameson 1L, meyvə şirəsi naturalni, mövsümi meyvə, qəlyan saxsı",en:"Jameson 1L, natural fruit juice, seasonal fruits, clay hookah",ru:"Jameson 1Л, натуральный сок, сезонные фрукты, кальян в глине"}},
+{az:"Viski SET-6",en:"Whisky SET-6",ru:"Виски СЕТ-6",p:170,desc:{az:"Chivas 12 — 1L, Redbull 6 ədəd, mövsümi meyvə, qəlyan şərbətli",en:"Chivas 12 — 1L, Redbull ×6, seasonal fruits, sherbet hookah",ru:"Chivas 12 — 1Л, Redbull ×6, сезонные фрукты, шербетный кальян"}},
+{az:"Viski SET-7",en:"Whisky SET-7",ru:"Виски СЕТ-7",p:144,desc:{az:"Jameson 1L, Redbull 4 ədəd, mövsümi meyvə, qəlyan şərbətli",en:"Jameson 1L, Redbull ×4, seasonal fruits, sherbet hookah",ru:"Jameson 1Л, Redbull ×4, сезонные фрукты, шербетный кальян"}},
+{az:"Viski SET-8",en:"Whisky SET-8",ru:"Виски СЕТ-8",p:167,desc:{az:"Jack Daniels 1L, Redbull 6 ədəd, mövsümi meyvə, qəlyan şərbətli",en:"Jack Daniels 1L, Redbull ×6, seasonal fruits, sherbet hookah",ru:"Jack Daniels 1Л, Redbull ×6, сезонные фрукты, шербетный кальян"}},
+{az:"Viski SET-9",en:"Whisky SET-9",ru:"Виски СЕТ-9",p:121,desc:{az:"Ballantines 0.7L, meyvə şirəsi 1L, mövsümi meyvə, qəlyan şərbətli",en:"Ballantines 0.7L, fruit juice 1L, seasonal fruits, sherbet hookah",ru:"Ballantines 0.7Л, фруктовый сок 1Л, сезонные фрукты, шербетный кальян"}},
+{az:"Viski SET-10",en:"Whisky SET-10",ru:"Виски СЕТ-10",p:105,desc:{az:"Jameson 0.5L, Redbull 3 ədəd, mövsümi meyvə, qəlyan şərbətli",en:"Jameson 0.5L, Redbull ×3, seasonal fruits, sherbet hookah",ru:"Jameson 0.5Л, Redbull ×3, сезонные фрукты, шербетный кальян"}},
+{az:"Viski SET-11",en:"Whisky SET-11",ru:"Виски СЕТ-11",p:89,desc:{az:"Jameson 0.5L, meyvə şirəsi 1L, mövsümi meyvə, qəlyan saxsı",en:"Jameson 0.5L, fruit juice 1L, seasonal fruits, clay hookah",ru:"Jameson 0.5Л, фруктовый сок 1Л, сезонные фрукты, кальян в глине"}},
+{az:"Viski SET-12",en:"Whisky SET-12",ru:"Виски СЕТ-12",p:127,desc:{az:"Chivas 0.5L, Redbull 4 ədəd, mövsümi meyvə, şərbətli qəlyan",en:"Chivas 0.5L, Redbull ×4, seasonal fruits, sherbet hookah",ru:"Chivas 0.5Л, Redbull ×4, сезонные фрукты, шербетный кальян"}},
+{az:"Tequila SET-1",en:"Tequila SET-1",ru:"Текила СЕТ-1",p:107,desc:{az:"Olmeca 1L, meyvə qarışıq kiçik, şərbətli qəlyan saxsıda",en:"Olmeca 1L, small mixed fruits, sherbet hookah in clay",ru:"Olmeca 1Л, фруктовый микс малый, шербетный кальян в глине"}},
+{az:"Tequila SET-2",en:"Tequila SET-2",ru:"Текила СЕТ-2",p:105,desc:{az:"Sierra 1L, meyvə qarışıq kiçik, şərbətli qəlyan saxsıda",en:"Sierra 1L, small mixed fruits, sherbet hookah in clay",ru:"Sierra 1Л, фруктовый микс малый, шербетный кальян в глине"}}
 ]},
 {cat:{az:"Tütün məmulatları",en:"Tobacco",ru:"Табачные изделия"},items:[
 {az:"Siqaret Winston",en:"Winston Cigarettes",ru:"Сигареты Winston",p:7},{az:"Siqaret Sobranie",en:"Sobranie Cigarettes",ru:"Сигареты Sobranie",p:7},{az:"Siqaret Kent",en:"Kent Cigarettes",ru:"Сигареты Kent",p:7}
@@ -1183,11 +1233,11 @@ function renderMenu() {
         </div>`;
         html += `<div class="menu-category-items show" id="cat-${si}">`;
         // Preview items always visible
-        html += previewItems.map(it => renderItem(it)).join('');
+        html += previewItems.map((it, ii) => renderItem(it, si+'_'+ii)).join('');
         // Extra items hidden initially
         if (extraItems.length > 0) {
             html += `<div class="menu-extra-items" id="extra-${si}" style="display:none;">`;
-            html += extraItems.map(it => renderItem(it)).join('');
+            html += extraItems.map((it, ii) => renderItem(it, si+'_p'+(ii+PREVIEW_COUNT))).join('');
             html += `</div>`;
             html += `<button class="menu-expand-btn" id="expand-btn-${si}" onclick="toggleExpand(${si})">${expandLabel} (+${extraItems.length})</button>`;
         }
@@ -1196,9 +1246,24 @@ function renderMenu() {
     grid.innerHTML = html;
 }
 
-function renderItem(it) {
+function renderItem(it, uid) {
     const name = it[currentLang];
+    if (it.desc) {
+        const desc = it.desc[currentLang];
+        return `<div class="menu-item menu-item-set" onclick="toggleSetDesc('${uid}')">
+            <div><div class="menu-item-name">${name} <i class="fas fa-chevron-down set-arrow" id="arrow-${uid}"></i></div></div>
+            <div class="menu-item-price">${it.p} &#8380;</div>
+            <div class="set-desc" id="setdesc-${uid}">${desc}</div>
+        </div>`;
+    }
     return `<div class="menu-item"><div><div class="menu-item-name">${name}</div></div><div class="menu-item-price">${it.p} &#8380;</div></div>`;
+}
+
+function toggleSetDesc(uid) {
+    const el = document.getElementById('setdesc-' + uid);
+    const arrow = document.getElementById('arrow-' + uid);
+    el.classList.toggle('open');
+    arrow.classList.toggle('open');
 }
 
 function toggleCategory(idx) {
